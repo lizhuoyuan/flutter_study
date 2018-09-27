@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/android.iml" filepath="$PROJECT_DIR$/android.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$USER_HOME$/AppData/Roaming/Pub/Cache/hosted/pub.flutter-io.cn/url_launcher-3.0.3/android/url_launcher.iml" filepath="$USER_HOME$/AppData/Roaming/Pub/Cache/hosted/pub.flutter-io.cn/url_launcher-3.0.3/android/url_launcher.iml" />
+    </modules>
+  </component>
+</project>
