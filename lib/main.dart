@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_app/AnimationPage.dart';
 import 'package:flutter_app/GridViewPage.dart';
@@ -45,9 +44,5 @@ class MyApp extends StatelessWidget {
         'Animation': (_) => AnimationPage(),
       },
     );
-  }
-
-  void isNum() {
-    String str = '12345';
   }
 }
