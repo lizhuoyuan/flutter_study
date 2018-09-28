@@ -23,6 +23,8 @@ class RouteState extends State<Routes> {
     listData.add(ListItem("KeepAlive", "KeepAlive", Icons.live_tv));
     listData.add(ListItem("Swiper", "Swiper", Icons.landscape));
     listData.add(ListItem("流式布局", "Wrap", Icons.landscape));
+    listData.add(ListItem("动画", "Animation", Icons.landscape));
+
   }
 
   @override

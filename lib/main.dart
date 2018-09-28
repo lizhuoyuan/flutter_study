@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_app/AnimationPage.dart';
 import 'package:flutter_app/GridViewPage.dart';
 import 'package:flutter_app/ImagePage.dart';
 import 'package:flutter_app/KeepAlivePage.dart';
@@ -41,6 +42,7 @@ class MyApp extends StatelessWidget {
         'KeepAlive': (_) => KeepAliveDemo(),
         'Swiper': (_) => SwiperPage(),
         'Wrap': (_) => WrapPage(),
+        'Animation': (_) => AnimationPage(),
       },
     );
   }
