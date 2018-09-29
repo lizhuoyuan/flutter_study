@@ -102,10 +102,10 @@ packages:
     description:
       path: "."
       ref: HEAD
-      resolved-ref: "4a943c9a7dab2edc37dcc9e33708d9cabde73065"
+      resolved-ref: "29ee2cfc58c20ca45c3544c37acd2f533cc2eb38"
       url: "git://github.com/openflutter/flutter_screenutil"
     source: git
-    version: "0.1.0"
+    version: "0.2.0"
   flutter_swiper:
     dependency: "direct main"
     description:

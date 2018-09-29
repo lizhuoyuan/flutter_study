@@ -7,6 +7,7 @@ import 'package:flutter_app/MyHomePage.dart';
 import 'package:flutter_app/PavlovaPage.dart';
 import 'package:flutter_app/RandomWords.dart';
 import 'package:flutter_app/Routes.dart';
+import 'package:flutter_app/ScreenUtilTest.dart';
 import 'package:flutter_app/StateWidgetPage.dart';
 import 'package:flutter_app/SwiperPage.dart';
 import 'package:flutter_app/TextFieldAndCheckPage.dart';
@@ -42,6 +43,7 @@ class MyApp extends StatelessWidget {
         'Swiper': (_) => SwiperPage(),
         'Wrap': (_) => WrapPage(),
         'Animation': (_) => AnimationPage(),
+        'ScreenUtilPage': (_) => ScreenUtilTest(),
       },
     );
   }

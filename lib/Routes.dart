@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class Routes extends StatefulWidget {
   @override
@@ -24,11 +25,13 @@ class RouteState extends State<Routes> {
     listData.add(ListItem("Swiper", "Swiper", Icons.landscape));
     listData.add(ListItem("流式布局", "Wrap", Icons.landscape));
     listData.add(ListItem("动画", "Animation", Icons.landscape));
-
+    listData.add(ListItem("屏幕适配示例", "ScreenUtilPage", Icons.landscape));
   }
 
   @override
   Widget build(BuildContext context) {
+    //设置适配尺寸 (填入设计稿中设备的屏幕尺寸) 假如设计稿是按iPhone6的尺寸设计的(iPhone6 750*1334)
+    ScreenUtil.instance = ScreenUtil(width: 750, height: 1334)..init(context);
     return Scaffold(
       appBar: AppBar(
         title: Text('列表'),
