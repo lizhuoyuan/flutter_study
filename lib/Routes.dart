@@ -26,6 +26,8 @@ class RouteState extends State<Routes> {
     listData.add(ListItem("流式布局", "Wrap", Icons.landscape));
     listData.add(ListItem("动画", "Animation", Icons.landscape));
     listData.add(ListItem("屏幕适配示例", "ScreenUtilPage", Icons.landscape));
+    listData.add(ListItem("futureBuilder", "FutureBuilderPage", Icons.hourglass_full));
+
   }
 
   @override
