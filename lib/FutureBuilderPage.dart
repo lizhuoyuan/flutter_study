@@ -16,8 +16,8 @@ class FutureBuilderPage extends StatefulWidget {
 
 class FutureBuilderState extends State<FutureBuilderPage> {
   Future _gerData() async {
-    var response = HttpUtil().get('http://api.douban.com/v2/movie/top250',
-        data: {'start': 25, 'count': 20});
+    var response = HttpUtil()
+        .get('http://api.douban.com/v2/movie/top250', data: {'count': 15});
     return response;
   }
 
@@ -43,12 +43,13 @@ class FutureBuilderState extends State<FutureBuilderPage> {
       case ConnectionState.none:
         return Text('还没有开始网络请求');
       case ConnectionState.active:
+        return Text('ConnectionState.active');
       case ConnectionState.waiting:
         return Center(
           child: CircularProgressIndicator(),
         );
       case ConnectionState.done:
-        if (snapshot.hasError) return new Text('Error: ${snapshot.error}');
+        if (snapshot.hasError) return Text('Error: ${snapshot.error}');
         return _createListView(context, snapshot);
     }
   }
@@ -56,19 +57,20 @@ class FutureBuilderState extends State<FutureBuilderPage> {
   Widget _createListView(BuildContext context, AsyncSnapshot snapshot) {
     List movies = snapshot.data['subjects'];
     return ListView.builder(
-      itemBuilder: (context, index) =>
-          _itemBuilder(context, index, movies[index]),
-      itemCount: movies.length,
+      itemBuilder: (context, index) => _itemBuilder(context, index, movies),
+      itemCount: movies.length * 2,
     );
   }
 
-  Widget _itemBuilder(BuildContext context, int index, movie) {
+  Widget _itemBuilder(BuildContext context, int index, movies) {
     if (index.isOdd) {
       return Divider();
     }
+    index = index ~/ 2;
     return ListTile(
-      title: Text(movie['title']),
-      leading: Text(movie['year']),
+      title: Text(movies[index]['title']),
+      leading: Text(movies[index]['year']),
+      trailing: Text(movies[index]['original_title']),
     );
   }
 }
