@@ -44,7 +44,7 @@ class MyApp extends StatelessWidget {
         'Swiper': (_) => SwiperPage(),
         'Wrap': (_) => WrapPage(),
         'Animation': (_) => AnimationPage(),
-        'ScreenUtilPage': (_) => ScreenUtilTest(),
+        'ScreenUtilPage': (_) => ScreenUtilTest(title: 'ScreenUtil测试'),
         'FutureBuilderPage': (_) => FutureBuilderPage(),
       },
     );
