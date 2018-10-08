@@ -15,6 +15,7 @@ dependencies:
   flutter_screenutil:
     git:
       url: git://github.com/openflutter/flutter_screenutil
+  scoped_model: ^0.3.0
 dev_dependencies:
   flutter_test:
     sdk: flutter

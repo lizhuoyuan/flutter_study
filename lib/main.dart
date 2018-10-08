@@ -12,41 +12,56 @@ import 'package:flutter_app/ScreenUtilTest.dart';
 import 'package:flutter_app/StateWidgetPage.dart';
 import 'package:flutter_app/SwiperPage.dart';
 import 'package:flutter_app/TextFieldAndCheckPage.dart';
+import 'package:flutter_app/ThemePage.dart';
 import 'package:flutter_app/WrapPage.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:scoped_model/scoped_model.dart';
+import 'package:flutter_app/model/AppModel.dart';
 
 void main() => runApp(MyApp());
+ThemeData _darkTheme = ThemeData(
+    primaryColor: Colors.black,
+    backgroundColor: Colors.black,
+    brightness: Brightness.dark);
+
+ThemeData _lightTheme = ThemeData(
+    backgroundColor: Colors.white,
+    primaryColor: Colors.green,
+    primarySwatch: Colors.blue,
+    brightness: Brightness.light);
 
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     ScreenUtil.instance = new ScreenUtil(width: 750, height: 1334);
-
-    return MaterialApp(
-      title: 'Welcome to Flutter',
-      theme: ThemeData(
-          backgroundColor: Colors.red,
-          primaryColor: Colors.green,
-          primarySwatch: Colors.blue,
-          brightness: Brightness.light),
-      home: Routes(),
-      routes: <String, WidgetBuilder>{
-        //静态路由,无法传参
-        'route': (_) => Routes(),
-        'randomWords': (_) => RandomWords(),
-        'Home': (_) => MyHomePage(),
-        'Pavlova': (_) => PavlovaPage(),
-        'Image': (_) => ImagePage(),
-        'GridView': (_) => GridViewPage(),
-        'StateWidget': (_) => StateWidgetPage(),
-        'TextField': (_) => TextFieldAndCheckPage(),
-        'KeepAlive': (_) => KeepAliveDemo(),
-        'Swiper': (_) => SwiperPage(),
-        'Wrap': (_) => WrapPage(),
-        'Animation': (_) => AnimationPage(),
-        'ScreenUtilPage': (_) => ScreenUtilTest(title: 'ScreenUtil测试'),
-        'FutureBuilderPage': (_) => FutureBuilderPage(),
-      },
+    AppModel appModel = AppModel();
+    return ScopedModel(
+      model: appModel,
+      child: ScopedModelDescendant<AppModel>(
+        builder: (context, child, model) => MaterialApp(
+              title: 'Welcome to Flutter',
+              theme: appModel.isNight ? _darkTheme : _lightTheme,
+              home: Routes(),
+              routes: <String, WidgetBuilder>{
+                //静态路由,无法传参
+                'route': (_) => Routes(),
+                'randomWords': (_) => RandomWords(),
+                'Home': (_) => MyHomePage(),
+                'Pavlova': (_) => PavlovaPage(),
+                'Image': (_) => ImagePage(),
+                'GridView': (_) => GridViewPage(),
+                'StateWidget': (_) => StateWidgetPage(),
+                'TextField': (_) => TextFieldAndCheckPage(),
+                'KeepAlive': (_) => KeepAliveDemo(),
+                'Swiper': (_) => SwiperPage(),
+                'Wrap': (_) => WrapPage(),
+                'Animation': (_) => AnimationPage(),
+                'ScreenUtilPage': (_) => ScreenUtilTest(title: 'ScreenUtil测试'),
+                'FutureBuilderPage': (_) => FutureBuilderPage(),
+                'ThemePage': (_) => ThemePage(),
+              },
+            ),
+      ),
     );
   }
 }

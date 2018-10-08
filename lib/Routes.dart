@@ -26,7 +26,9 @@ class RouteState extends State<Routes> {
     listData.add(ListItem("流式布局", "Wrap", Icons.landscape));
     listData.add(ListItem("动画", "Animation", Icons.landscape));
     listData.add(ListItem("屏幕适配示例", "ScreenUtilPage", Icons.landscape));
-    listData.add(ListItem("futureBuilder", "FutureBuilderPage", Icons.hourglass_full));
+    listData.add(
+        ListItem("futureBuilder", "FutureBuilderPage", Icons.hourglass_full));
+    listData.add(ListItem("主题", "ThemePage", Icons.landscape));
 
   }
 
@@ -37,6 +39,7 @@ class RouteState extends State<Routes> {
     return Scaffold(
       appBar: AppBar(
         title: Text('列表'),
+        centerTitle: true,
       ),
       body: ListView.builder(
         itemBuilder: (BuildContext context, int index) {
