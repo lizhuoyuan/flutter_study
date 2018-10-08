@@ -19,16 +19,6 @@ import 'package:scoped_model/scoped_model.dart';
 import 'package:flutter_app/model/AppModel.dart';
 
 void main() => runApp(MyApp());
-ThemeData _darkTheme = ThemeData(
-    primaryColor: Colors.black,
-    backgroundColor: Colors.black,
-    brightness: Brightness.dark);
-
-ThemeData _lightTheme = ThemeData(
-    backgroundColor: Colors.white,
-    primaryColor: Colors.green,
-    primarySwatch: Colors.blue,
-    brightness: Brightness.light);
 
 class MyApp extends StatelessWidget {
   @override
@@ -40,7 +30,7 @@ class MyApp extends StatelessWidget {
       child: ScopedModelDescendant<AppModel>(
         builder: (context, child, model) => MaterialApp(
               title: 'Welcome to Flutter',
-              theme: appModel.isNight ? _darkTheme : _lightTheme,
+              theme: appModel.theme,
               home: Routes(),
               routes: <String, WidgetBuilder>{
                 //静态路由,无法传参
