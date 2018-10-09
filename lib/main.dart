@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/AnimationPage.dart';
+import 'package:flutter_app/ChipPage.dart';
 import 'package:flutter_app/FutureBuilderPage.dart';
 import 'package:flutter_app/GridViewPage.dart';
 import 'package:flutter_app/ImagePage.dart';
@@ -49,6 +50,7 @@ class MyApp extends StatelessWidget {
                 'ScreenUtilPage': (_) => ScreenUtilTest(title: 'ScreenUtil测试'),
                 'FutureBuilderPage': (_) => FutureBuilderPage(),
                 'ThemePage': (_) => ThemePage(),
+                'ChipPage': (_) => ChipPage(),
               },
             ),
       ),
