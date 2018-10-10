@@ -15,6 +15,7 @@ import 'package:flutter_app/StateWidgetPage.dart';
 import 'package:flutter_app/SwiperPage.dart';
 import 'package:flutter_app/TextFieldAndCheckPage.dart';
 import 'package:flutter_app/ThemePage.dart';
+import 'package:flutter_app/Transform3D.dart';
 import 'package:flutter_app/WrapPage.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:scoped_model/scoped_model.dart';
@@ -53,6 +54,7 @@ class MyApp extends StatelessWidget {
                 'ThemePage': (_) => ThemePage(),
                 'ChipPage': (_) => ChipPage(),
                 'ExpansionTilePage': (_) => ExpansionTilePage(),
+                'TransformPage': (_) => Transform3D(),
               },
             ),
       ),

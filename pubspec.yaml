@@ -12,9 +12,7 @@ dependencies:
   json_annotation: ^0.2.3
   flutter_swiper: ^1.0.6
   url_launcher: ^3.0.3
-  flutter_screenutil:
-    git:
-      url: git://github.com/openflutter/flutter_screenutil
+  flutter_screenutil: ^0.2.2
   scoped_model: ^0.3.0
 dev_dependencies:
   flutter_test:

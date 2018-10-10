@@ -100,12 +100,10 @@ packages:
   flutter_screenutil:
     dependency: "direct main"
     description:
-      path: "."
-      ref: HEAD
-      resolved-ref: "29ee2cfc58c20ca45c3544c37acd2f533cc2eb38"
-      url: "git://github.com/openflutter/flutter_screenutil"
-    source: git
-    version: "0.2.0"
+      name: flutter_screenutil
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "0.2.2"
   flutter_swiper:
     dependency: "direct main"
     description:
