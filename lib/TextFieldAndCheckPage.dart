@@ -22,38 +22,40 @@ class TextFieldAndCheckPageState extends State<TextFieldAndCheckPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('输入和选择'),
-      ),
-      body: Column(
-        children: <Widget>[
-          TextField(
-            controller: phoneController,
-            keyboardType: TextInputType.number,
-            decoration: InputDecoration(
-              contentPadding: EdgeInsets.all(10.0),
-              icon: Icon(Icons.phone),
-              labelText: '请输入你的用户名)',
-              helperText: '请输入注册的手机号',
-            ),
-            autofocus: false,
-          ),
-          TextField(
-              controller: passController,
-              keyboardType: TextInputType.number,
-              decoration: InputDecoration(
-                contentPadding: EdgeInsets.all(10.0),
-                icon: Icon(Icons.lock),
-                labelText: '请输入密码)',
+        appBar: AppBar(
+          title: Text('输入和选择'),
+        ),
+        body: Form(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: <Widget>[
+              TextField(
+                controller: phoneController,
+                keyboardType: TextInputType.number,
+                decoration: InputDecoration(
+                  contentPadding: EdgeInsets.all(10.0),
+                  icon: Icon(Icons.phone),
+                  labelText: '请输入你的用户名)',
+                  helperText: '请输入注册的手机号',
+                ),
+                autofocus: false,
               ),
-              obscureText: true),
-          RaisedButton(
-            onPressed: _login,
-            child: Text('登录'),
+              TextField(
+                  controller: passController,
+                  keyboardType: TextInputType.number,
+                  decoration: InputDecoration(
+                    contentPadding: EdgeInsets.all(10.0),
+                    icon: Icon(Icons.lock),
+                    labelText: '请输入密码)',
+                  ),
+                  obscureText: true),
+              RaisedButton(
+                onPressed: _login,
+                child: Text('登录'),
+              ),
+            ],
           ),
-        ],
-      ),
-    );
+        ));
   }
 
   void _login() {

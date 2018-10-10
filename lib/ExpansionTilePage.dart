@@ -18,6 +18,12 @@ class ExpandsionState extends State<ExpansionTilePage>
 
   var _iconColor;
 
+  List list = [
+    {'index': 1, 'opened': true},
+    {'index': 2, 'opened': false},
+    {'index': 3, 'opened': false},
+  ];
+
   @override
   void initState() {
     super.initState();
@@ -32,8 +38,8 @@ class ExpandsionState extends State<ExpansionTilePage>
         appBar: AppBar(
           title: Text('ExpansionTile'),
         ),
-        body: Builder(builder: (BuildContext context) {
-          return ExpansionTile(
+        body: ListView(children: <Widget>[
+          ExpansionTile(
             title: Text('title'),
             leading: Icon(Icons.title),
             trailing: RotationTransition(
@@ -61,7 +67,26 @@ class ExpandsionState extends State<ExpansionTilePage>
                 leading: Icon(Icons.map),
               )
             ],
-          );
-        }));
+          ),
+          ExpansionPanelList.radio(
+            expansionCallback: (int i, bool opened) {
+              print(i);
+              print(opened);
+              setState(() {
+                list[i]['opened'] = !opened;
+              });
+            },
+            children: list
+                .map((item) => ExpansionPanelRadio(
+                    value: item,
+                    headerBuilder: (context, opened) {
+                      return ListTile(
+                        title: Text("更多内容+${item['index']}"),
+                      );
+                    },
+                    body: Text('aa${item['index']}')))
+                .toList(),
+          )
+        ]));
   }
 }
