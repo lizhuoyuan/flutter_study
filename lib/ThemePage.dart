@@ -17,24 +17,23 @@ class ThemePage extends StatefulWidget {
 class ThemeState extends State<ThemePage> {
   @override
   Widget build(BuildContext context) {
-    //final appModel = ScopedModel.of<AppModel>(context);
-    return ScopedModelDescendant<AppModel>(builder: (context, child, model) {
-      return Scaffold(
-        appBar: AppBar(
-          title: Text('主题'),
-        ),
-        body: Row(
-          children: <Widget>[
-            Text('夜间模式'),
-            Switch(
-                value: model.isNight,
-                onChanged: (bool value) {
-                  print('value:$value');
-                  model.changeTheme(value);
-                }),
-          ],
-        ),
-      );
-    });
+    final appModel = AppModel.of(context);
+
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('夜间模式'),
+      ),
+      body: Row(
+        children: <Widget>[
+          Text('夜间模式'),
+          Switch(
+              value: appModel.isNight,
+              onChanged: (bool value) {
+                print('value:$value');
+                appModel.changeTheme(value);
+              }),
+        ],
+      ),
+    );
   }
 }

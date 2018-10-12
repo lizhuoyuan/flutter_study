@@ -29,4 +29,6 @@ class AppModel extends Model {
     _isNight = value;
     notifyListeners();
   }
+
+  static AppModel of(BuildContext context) => ScopedModel.of<AppModel>(context);
 }
