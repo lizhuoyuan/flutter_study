@@ -27,12 +27,13 @@ void main() => runApp(MyApp());
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    ScreenUtil.instance = new ScreenUtil(width: 750, height: 1334);
+    ScreenUtil.instance = new ScreenUtil(width: 1080, height: 1080);
     AppModel appModel = AppModel();
     return ScopedModel(
       model: appModel,
       child: ScopedModelDescendant<AppModel>(
         builder: (context, child, model) => MaterialApp(
+              debugShowCheckedModeBanner: false,
               title: 'Welcome to Flutter',
               theme: appModel.theme,
               home: Routes(),
@@ -56,7 +57,7 @@ class MyApp extends StatelessWidget {
                 'ChipPage': (_) => ChipPage(),
                 'ExpansionTilePage': (_) => ExpansionTilePage(),
                 'TransformPage': (_) => Transform3D(),
-                'Login': (_) => LoginPage(),
+                'LoginPage': (_) => LoginPage(),
               },
             ),
       ),

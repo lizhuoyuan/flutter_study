@@ -10,8 +10,8 @@ import 'package:scoped_model/scoped_model.dart';
 class AppModel extends Model {
   bool _isNight = false;
   ThemeData _darkTheme = ThemeData(
-      primaryColor: Colors.black,
       backgroundColor: Colors.black,
+      primaryColor: Colors.black,
       brightness: Brightness.dark);
 
   ThemeData _lightTheme = ThemeData(
