@@ -25,7 +25,6 @@ class _MyHomePageState extends State<ScreenUtilTest> {
 
   @override
   Widget build(BuildContext context) {
-
     print('设备宽度:${ScreenUtil.screenWidth}'); //设备宽度
     print('设备高度:${ScreenUtil.screenHeight}'); //设备高度
     print('设备的像素密度:${ScreenUtil.pixelRatio}'); //设备的像素密度
@@ -44,7 +43,7 @@ class _MyHomePageState extends State<ScreenUtilTest> {
             Row(
               children: <Widget>[
                 Container(
-                  width: ScreenUtil().setWidth(540),
+                  width: ScreenUtil().setWidth(375),
                   height: ScreenUtil().setHeight(200),
                   color: Colors.red,
                   child: Text(
@@ -53,13 +52,12 @@ class _MyHomePageState extends State<ScreenUtilTest> {
                   ),
                 ),
                 Container(
-                  width: ScreenUtil().setWidth(540),
+                  width: ScreenUtil().setWidth(375),
                   height: ScreenUtil().setHeight(200),
                   color: Colors.blue,
                   child: Text('我的宽度${ScreenUtil().setWidth(375)}dp',
                       style: TextStyle(color: Colors.white)),
                 ),
-
               ],
             ),
             Text('设备的屏幕宽度：${ScreenUtil.screenWidth}px'),

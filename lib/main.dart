@@ -17,7 +17,6 @@ import 'package:flutter_app/TextFieldAndCheckPage.dart';
 import 'package:flutter_app/ThemePage.dart';
 import 'package:flutter_app/Transform3D.dart';
 import 'package:flutter_app/WrapPage.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:scoped_model/scoped_model.dart';
 import 'package:flutter_app/model/AppModel.dart';
 import 'package:flutter_app/login_page.dart';
@@ -27,7 +26,6 @@ void main() => runApp(MyApp());
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    ScreenUtil.instance = new ScreenUtil(width: 1080, height: 1080);
     AppModel appModel = AppModel();
     return ScopedModel(
       model: appModel,
