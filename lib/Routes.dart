@@ -30,9 +30,10 @@ class RouteState extends State<Routes> {
         ListItem("futureBuilder", "FutureBuilderPage", Icons.hourglass_full));
     listData.add(ListItem("主题", "ThemePage", Icons.landscape));
     listData.add(ListItem("Chip", "ChipPage", Icons.landscape));
-    listData.add(ListItem("ExpansionTile", "ExpansionTilePage", Icons.landscape));
+    listData
+        .add(ListItem("ExpansionTile", "ExpansionTilePage", Icons.landscape));
     listData.add(ListItem("Transform 3D效果", "TransformPage", Icons.landscape));
-
+    listData.add(ListItem("登录页", "LoginPage", Icons.landscape));
   }
 
   @override

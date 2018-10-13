@@ -20,6 +20,7 @@ import 'package:flutter_app/WrapPage.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:scoped_model/scoped_model.dart';
 import 'package:flutter_app/model/AppModel.dart';
+import 'package:flutter_app/login_page.dart';
 
 void main() => runApp(MyApp());
 
@@ -55,6 +56,7 @@ class MyApp extends StatelessWidget {
                 'ChipPage': (_) => ChipPage(),
                 'ExpansionTilePage': (_) => ExpansionTilePage(),
                 'TransformPage': (_) => Transform3D(),
+                'Login': (_) => LoginPage(),
               },
             ),
       ),
