@@ -6,7 +6,6 @@
 
 import 'package:flutter/material.dart';
 import 'package:groovin_material_icons/groovin_material_icons.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class LoginPage extends StatefulWidget {
   @override
@@ -91,13 +90,23 @@ class _LoginPageState extends State<LoginPage> {
     return ButtonBar(
       alignment: MainAxisAlignment.center,
       children: _loginMethod
-          .map((item) => IconButton(
-              icon:
-                  Icon(item['icon'], color: Theme.of(context).iconTheme.color),
-              onPressed: () {
-                //TODO : 执行登录方法
-                print('${item['title']} 登录');
-              }))
+          .map((item) => Builder(
+                builder: (context) {
+                  return IconButton(
+                      icon: Icon(item['icon'],
+                          color: Theme.of(context).iconTheme.color),
+                      onPressed: () {
+                        //TODO : 第三方登录方法
+                        Scaffold.of(context).showSnackBar(new SnackBar(
+                          content: new Text("${item['title']}登录"),
+                          action: new SnackBarAction(
+                            label: "取消",
+                            onPressed: () {},
+                          ),
+                        ));
+                      });
+                },
+              ))
           .toList(),
     );
   }
