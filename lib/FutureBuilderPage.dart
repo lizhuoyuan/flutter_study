@@ -6,6 +6,7 @@
 
 import 'dart:async';
 
+import 'package:async/async.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_app/utils/HttpUtil.dart';
 
@@ -16,21 +17,19 @@ class FutureBuilderPage extends StatefulWidget {
 
 class FutureBuilderState extends State<FutureBuilderPage> {
   String title = 'FutureBuilder使用';
-  var _futureBuilderFuture;
+  AsyncMemoizer _memoizer = AsyncMemoizer();
 
-  Future _gerData() async {
-    var response = HttpUtil()
-        .get('http://api.douban.com/v2/movie/top250', data: {'count': 15});
-    return response;
+  _gerData() {
+    return _memoizer.runOnce(() async {
+      return await HttpUtil()
+          .get('http://api.douban.com/v2/movie/top250', data: {'count': 15});
+    });
   }
 
-  @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-
-    ///用_futureBuilderFuture来保存_gerData()的结果，以避免不必要的ui重绘
-    _futureBuilderFuture = _gerData();
+  Future _refreshData() async {
+    setState(() {
+      _memoizer = AsyncMemoizer();
+    });
   }
 
   @override
@@ -48,11 +47,10 @@ class FutureBuilderState extends State<FutureBuilderPage> {
         child: Icon(Icons.title),
       ),
       body: RefreshIndicator(
-        onRefresh: _gerData,
+        onRefresh: _refreshData,
         child: FutureBuilder(
           builder: _buildFuture,
-          future:
-              _futureBuilderFuture, // 用户定义的需要异步执行的代码，类型为Future<String>或者null的变量或函数
+          future: _gerData(), // 用户定义的需要异步执行的代码，类型为Future<String>或者null的变量或函数
         ),
       ),
     );
