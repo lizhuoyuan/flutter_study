@@ -17,6 +17,7 @@ import 'package:flutter_app/TextFieldAndCheckPage.dart';
 import 'package:flutter_app/ThemePage.dart';
 import 'package:flutter_app/Transform3D.dart';
 import 'package:flutter_app/WrapPage.dart';
+import 'package:flutter_app/webview_page.dart';
 import 'package:scoped_model/scoped_model.dart';
 import 'package:flutter_app/model/AppModel.dart';
 import 'package:flutter_app/login_page.dart';
@@ -56,6 +57,7 @@ class MyApp extends StatelessWidget {
                 'ExpansionTilePage': (_) => ExpansionTilePage(),
                 'TransformPage': (_) => Transform3D(),
                 'LoginPage': (_) => LoginPage(),
+                'WebViewPage': (_) => WebViewPage(),
               },
             ),
       ),
