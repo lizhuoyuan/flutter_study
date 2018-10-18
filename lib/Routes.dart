@@ -35,6 +35,7 @@ class RouteState extends State<Routes> {
     listData.add(ListItem("Transform 3D效果", "TransformPage", Icons.landscape));
     listData.add(ListItem("登录页", "LoginPage", Icons.landscape));
     listData.add(ListItem("WebView", "WebViewPage", Icons.web));
+    listData.add(ListItem("自定义View", "CustomViewPage", Icons.view_quilt));
   }
 
   @override
