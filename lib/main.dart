@@ -18,6 +18,7 @@ import 'package:flutter_app/ThemePage.dart';
 import 'package:flutter_app/Transform3D.dart';
 import 'package:flutter_app/WrapPage.dart';
 import 'package:flutter_app/custom_view.dart';
+import 'package:flutter_app/tab_page.dart';
 import 'package:flutter_app/webview_page.dart';
 import 'package:scoped_model/scoped_model.dart';
 import 'package:flutter_app/model/AppModel.dart';
@@ -34,7 +35,7 @@ class MyApp extends StatelessWidget {
       child: ScopedModelDescendant<AppModel>(
         builder: (context, child, model) => MaterialApp(
               debugShowCheckedModeBanner: false,
-              title: 'Welcome to Flutter',
+              title: 'Welcome to Flutter_study',
               theme: appModel.theme,
               home: Routes(),
               routes: <String, WidgetBuilder>{
@@ -60,6 +61,7 @@ class MyApp extends StatelessWidget {
                 'LoginPage': (_) => LoginPage(),
                 'WebViewPage': (_) => WebViewPage(),
                 'CustomViewPage': (_) => CustomViewPage(),
+                'TabPae': (_) => TabPage(),
               },
             ),
       ),
