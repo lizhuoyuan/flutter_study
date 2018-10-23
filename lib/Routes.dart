@@ -37,6 +37,8 @@ class RouteState extends State<Routes> {
     listData.add(ListItem("WebView", "WebViewPage", Icons.web));
     listData.add(ListItem("自定义View", "CustomViewPage", Icons.view_quilt));
     listData.add(ListItem("Tab的使用", "TabPae", Icons.view_quilt));
+    listData.add(ListItem("backdropPage", "backdropPage", Icons.view_quilt));
+
   }
 
   @override
@@ -79,13 +81,6 @@ class ListItemWidget extends StatelessWidget {
         trailing: Icon(Icons.arrow_forward),
         onTap: () {
           Navigator.pushNamed(context, listItem.routeName);
-          /*showDialog(
-                context: context,
-                child: new SimpleDialog(
-                  contentPadding: const EdgeInsets.all(10.0),
-                  title: new Text("我是标题"),
-                  children: <Widget>[new Text("我是内容区域")],
-                ));*/
         });
   }
 }

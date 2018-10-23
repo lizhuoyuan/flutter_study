@@ -6,7 +6,7 @@ import 'package:flutter_app/FutureBuilderPage.dart';
 import 'package:flutter_app/GridViewPage.dart';
 import 'package:flutter_app/ImagePage.dart';
 import 'package:flutter_app/KeepAlivePage.dart';
-import 'package:flutter_app/MyHomePage.dart'; 
+import 'package:flutter_app/MyHomePage.dart';
 import 'package:flutter_app/PavlovaPage.dart';
 import 'package:flutter_app/RandomWords.dart';
 import 'package:flutter_app/Routes.dart';
@@ -17,6 +17,7 @@ import 'package:flutter_app/TextFieldAndCheckPage.dart';
 import 'package:flutter_app/ThemePage.dart';
 import 'package:flutter_app/Transform3D.dart';
 import 'package:flutter_app/WrapPage.dart';
+import 'package:flutter_app/backdrop_page.dart';
 import 'package:flutter_app/custom_view.dart';
 import 'package:flutter_app/tab_page.dart';
 import 'package:flutter_app/webview_page.dart';
@@ -62,6 +63,7 @@ class MyApp extends StatelessWidget {
                 'WebViewPage': (_) => WebViewPage(),
                 'CustomViewPage': (_) => CustomViewPage(),
                 'TabPae': (_) => TabPage(),
+                'backdropPage': (_) => BackdropPage(),
               },
             ),
       ),
