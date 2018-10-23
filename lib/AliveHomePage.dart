@@ -1,15 +1,13 @@
 /*
  * Created by 李卓原 on 2018/9/19.
  * email: zhuoyuan93@gmail.com
- *
- */
-
-import 'package:flutter/material.dart';
-
-import 'package:flutter/material.dart';
-/**
  * 实现原理，使用AutomaticKeepAliveClientMixin，并重写wantKeepAlive方法，让状态不被回收掉。
  */
+
+import 'package:flutter/material.dart';
+
+import 'package:flutter/material.dart';
+
 
 class AliveHomePage extends StatefulWidget {
   AliveHomePage({Key key, this.title}) : super(key: key);

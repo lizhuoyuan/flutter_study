@@ -10,33 +10,117 @@ class BackdropPage extends StatefulWidget {
   _BackdropPageState createState() => _BackdropPageState();
 }
 
-class _BackdropPageState extends State<BackdropPage> {
-  double width, height;
+class _BackdropPageState extends State<BackdropPage>
+    with SingleTickerProviderStateMixin {
+  Animation<double> _animation;
+  AnimationController _controller;
+  bool select = false;
 
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
-    width = 200.0;
-    height = 56.0;
+
+    _controller =
+        AnimationController(vsync: this, duration: Duration(milliseconds: 200));
+    _animation = Tween(begin: 0.0, end: 0.25).animate(_controller)
+      ..addListener(() {
+        setState(() {});
+      });
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        height: height,
         child: Column(
           children: <Widget>[
-            ListTile(
-
-              title: Text('title'),
-              leading: IconButton(
-                  icon: Icon(Icons.arrow_back),
-                  onPressed: () {
-                    Navigator.pop(context);
-                  }),
+            _BackAppBar(
+                title: Text(
+                  'title',
+                ),
+                leading: IconButton(
+                    icon: Icon(Icons.arrow_back),
+                    onPressed: () {
+                      Navigator.pop(context);
+                    }),
+                trailing: RotationTransition(
+                  turns: _animation,
+                  child: IconButton(
+                    icon: Icon(Icons.call_to_action),
+                    onPressed: _showMore,
+                  ),
+                )),
+            Container(
+              height: _animation.value * 1200,
+              child: ListView(
+                children: <Widget>[
+                  ListTile(
+                    leading: Text(
+                      '夜间模式',
+                      style: TextStyle(color: Colors.white),
+                    ),
+                    trailing: Switch(
+                      value: select,
+                      onChanged: (value) {
+                        setState(() {
+                          select = value;
+                        });
+                      },
+                      activeColor: Colors.blue[100],
+                    ),
+                  ),
+                  ListTile(
+                    leading: Text(
+                      '日间模式',
+                      style: TextStyle(color: Colors.white),
+                    ),
+                    trailing: Switch(
+                      value: !select,
+                      onChanged: (value) {
+                        setState(() {
+                          select = value;
+                        });
+                      },
+                      activeColor: Colors.blue[100],
+                    ),
+                  ),
+                  ListTile(
+                    leading: Text(
+                      '没有模式',
+                      style: TextStyle(color: Colors.white),
+                    ),
+                    trailing: Switch(
+                      value: select,
+                      onChanged: (value) {
+                        setState(() {
+                          select = value;
+                        });
+                      },
+                      activeColor: Colors.blue[100],
+                    ),
+                  ),
+                  ListTile(
+                    leading: Text(
+                      '没有模式',
+                      style: TextStyle(color: Colors.white),
+                    ),
+                    trailing: Switch(
+                      value: select,
+                      onChanged: (value) {
+                        setState(() {
+                          select = value;
+                        });
+                      },
+                      activeColor: Colors.blue[100],
+                    ),
+                  ),
+                ],
+              ),
+              decoration: BoxDecoration(color: Colors.blue),
             ),
+            Text('hello'),
+            Image.asset('images/beauty.jpg'),
           ],
         ),
       ),
@@ -44,9 +128,18 @@ class _BackdropPageState extends State<BackdropPage> {
   }
 
   void _showMore() {
-    setState(() {
-      height = height == 56.0 ? 300.0 : 56.0;
-    });
+    if (_animation.value == 0.25) {
+      _controller.reverse();
+    } else {
+      _controller.forward();
+    }
+  }
+
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
+    _controller.dispose();
   }
 }
 
@@ -56,7 +149,9 @@ class _BackAppBar extends StatelessWidget {
     this.leading = const SizedBox(width: 56.0),
     @required this.title,
     this.trailing,
-  }) : assert(leading != null), assert(title != null), super(key: key);
+  })  : assert(leading != null),
+        assert(title != null),
+        super(key: key);
 
   final Widget leading;
   final Widget title;
@@ -88,14 +183,13 @@ class _BackAppBar extends StatelessWidget {
     final ThemeData theme = Theme.of(context);
 
     return IconTheme.merge(
-      data: theme.primaryIconTheme,
-      child: new DefaultTextStyle(
-        style: theme.primaryTextTheme.title,
-        child: new SizedBox(
-          height: _kBackAppBarHeight,
-          child: new Row(children: children),
-        ),
-      ),
-    );
+        data: theme.primaryIconTheme,
+        child: new DefaultTextStyle(
+          style: theme.primaryTextTheme.title,
+          child: Container(
+              padding: const EdgeInsets.only(top: 20.0),
+              child: Row(children: children),
+              decoration: BoxDecoration(color: Colors.blue)),
+        ));
   }
 }
