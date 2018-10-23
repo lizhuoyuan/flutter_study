@@ -93,11 +93,14 @@ Lake1 Oeschinen lies at the foot of the Blüemlisalp in the Bernese Alps. Situat
           AppBar(title: Text('Startup Name Generator'), actions: <Widget>[]),
       body: ListView(
         children: [
-          Image.asset(
-            'images/jay.jpg',
-            width: 600.0,
-            height: 240.0,
-            fit: BoxFit.cover,
+          Hero(
+            tag: 'hero',
+            child: Image.asset(
+              'images/jay.jpg',
+              width: 600.0,
+              height: 240.0,
+              fit: BoxFit.cover,
+            ),
           ),
           titleSection,
           buttonSection,
