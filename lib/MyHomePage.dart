@@ -2,6 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_app/FavoriteWidget.dart';
 
 class MyHomePage extends StatelessWidget {
+  final String tag;
+
+  MyHomePage({this.tag, Key key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     Widget titleSection = Container(
@@ -94,7 +98,7 @@ Lake1 Oeschinen lies at the foot of the Blüemlisalp in the Bernese Alps. Situat
       body: ListView(
         children: [
           Hero(
-            tag: 'hero',
+            tag: tag ?? 'hero',
             child: Image.asset(
               'images/jay.jpg',
               width: 600.0,

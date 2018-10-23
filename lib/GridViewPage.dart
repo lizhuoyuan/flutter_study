@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/MyHomePage.dart';
 
 class GridViewPage extends StatefulWidget {
   @override
@@ -33,7 +34,7 @@ class GridViewState extends State<GridViewPage> {
             ),
         itemCount: listData.length,
         itemBuilder: (BuildContext context, int index) {
-          return ListItemWidget(listData[index]);
+          return ListItemWidget(listData[index], index);
         },
       ),
     );
@@ -49,23 +50,30 @@ class ListItem {
 
 class ListItemWidget extends StatelessWidget {
   final ListItem listItem;
-
-  ListItemWidget(this.listItem);
+  final int index;
+  ListItemWidget(this.listItem, this.index);
 
   @override
   Widget build(BuildContext context) {
-    return new GestureDetector(
-      child: new Container(
+    return GestureDetector(
+      child: Container(
         color: Colors.green,
-        child: new Column(
+        child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            new Icon(
-              listItem.iconData,
-              size: 50.0,
-              color: Colors.white,
-            ),
-            new Text(
+            Hero(
+                tag: listItem.title,
+                child: Image(
+                  image: AssetImage(
+                      index == 5 ? 'images/jay.jpg' : 'images/pic3.jpg'),
+                  width: 150.0,
+                  height: 150.0,
+                  fit: BoxFit.fill,
+                  /*listItem.iconData,
+                size: 50.0,
+                color: Colors.white,*/
+                )),
+            Text(
               listItem.title,
               style: TextStyle(color: Colors.white),
             )
@@ -73,9 +81,14 @@ class ListItemWidget extends StatelessWidget {
         ),
       ),
       onTap: () {
-        Scaffold.of(context).showSnackBar(new SnackBar(
+        /*Scaffold.of(context).showSnackBar(new SnackBar(
           content: new Text(listItem.title),
-        ));
+        ));*/
+        Navigator.of(context).push(PageRouteBuilder(pageBuilder:
+            (BuildContext context, Animation<double> animation,
+                Animation<double> secondaryAnimation) {
+          return MyHomePage(tag: listItem.title);
+        }));
       },
     );
   }
