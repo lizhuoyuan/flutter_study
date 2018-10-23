@@ -73,19 +73,19 @@ class ListItemWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return new ListTile(
+    return ListTile(
         title: Text(listItem.title),
         leading: Icon(listItem.iconData),
         trailing: Icon(Icons.arrow_forward),
         onTap: () {
           Navigator.pushNamed(context, listItem.routeName);
           /*showDialog(
-              context: context,
-              child: new SimpleDialog(
-                contentPadding: const EdgeInsets.all(10.0),
-                title: new Text("我是标题"),
-                children: <Widget>[new Text("我是内容区域")],
-              ));*/
+                context: context,
+                child: new SimpleDialog(
+                  contentPadding: const EdgeInsets.all(10.0),
+                  title: new Text("我是标题"),
+                  children: <Widget>[new Text("我是内容区域")],
+                ));*/
         });
   }
 }
