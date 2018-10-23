@@ -64,24 +64,18 @@ class WebViewPageState extends State<WebViewPage> {
     _onStateChanged =
         flutterWebviewPlugin.onStateChanged.listen((WebViewStateChanged state) {
       if (mounted) {
-        /* setState(() {
-          isloading =
-              '${state.type}' == 'WebViewState.finishLoad' ? false : true;
-        });*/
-        //Fluttertoast.showToast(msg: '$isloading');
-        //print('${state.type}');
-        switch ('${state.type}') {
-          case 'WebViewState.startLoad':
+        switch (state.type) {
+          case WebViewState.startLoad:
             setState(() {
               isloading = true;
             });
             break;
-          case 'WebViewState.shouldStart':
+          case WebViewState.shouldStart:
             setState(() {
               isloading = true;
             });
             break;
-          case 'WebViewState.finishLoad':
+          case WebViewState.finishLoad:
             setState(() {
               isloading = false;
             });
