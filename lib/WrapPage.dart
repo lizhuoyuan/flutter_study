@@ -6,6 +6,8 @@
 
 import 'package:flutter/material.dart';
 
+import 'package:fluttertoast/fluttertoast.dart';
+
 class WrapPage extends StatelessWidget {
   List list = ['斗破苍穹', '遮天', '斗罗大陆', '大主宰', '凡人修仙传', '盗墓笔记', '校花的贴身高手', '诛仙'];
 
@@ -51,13 +53,14 @@ class Textbook extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
         onTap: () {
-          Scaffold.of(context).showSnackBar(SnackBar(
+          Fluttertoast.showToast(msg: item);
+          /* Scaffold.of(context).showSnackBar(SnackBar(
             content: Text(item),
             action: new SnackBarAction(
               label: "撤回",
               onPressed: () {},
             ),
-          ));
+          ));*/
         },
         child: Container(
           padding: EdgeInsets.all(5.0),

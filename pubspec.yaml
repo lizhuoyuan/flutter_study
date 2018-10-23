@@ -16,7 +16,7 @@ dependencies:
   scoped_model: ^0.3.0
   groovin_material_icons: ^1.1.5
   flutter_webview_plugin: ^0.2.1+2
-
+  fluttertoast: ^2.0.9
 dev_dependencies:
   flutter_test:
     sdk: flutter

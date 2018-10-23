@@ -6,7 +6,7 @@ import 'package:flutter_app/FutureBuilderPage.dart';
 import 'package:flutter_app/GridViewPage.dart';
 import 'package:flutter_app/ImagePage.dart';
 import 'package:flutter_app/KeepAlivePage.dart';
-import 'package:flutter_app/MyHomePage.dart';
+import 'package:flutter_app/MyHomePage.dart'; 
 import 'package:flutter_app/PavlovaPage.dart';
 import 'package:flutter_app/RandomWords.dart';
 import 'package:flutter_app/Routes.dart';
