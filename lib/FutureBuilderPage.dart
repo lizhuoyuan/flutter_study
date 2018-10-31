@@ -32,6 +32,18 @@ class FutureBuilderState extends State<FutureBuilderPage> {
     });
   }
 
+/*  @override
+  void initState() {
+    super.initState();
+    _testGet();
+  }
+
+  Future _testGet() async {
+    var response = await HttpUtil().get('https://www.apiopen.top/novelApi');
+
+    print(response['data']);
+  }*/
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
