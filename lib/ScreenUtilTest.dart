@@ -32,7 +32,8 @@ class _MyHomePageState extends State<ScreenUtilTest> {
     print('状态栏高度:${ScreenUtil.statusBarHeight}px'); //状态栏高度 刘海屏会更高
     print('宽度相对于设计稿放大的倍数:${ScreenUtil().scaleWidth}'); //宽度相对于设计稿放大的倍数
     print('高度相对于设计稿放大的倍数:${ScreenUtil().scaleHeight}'); //高度相对于设计稿放大的倍数
-
+    print('17px的字体:${ScreenUtil().setSp(17)}');
+    print('17px的宽度:${ScreenUtil().setWidth(17)}');
     return new Scaffold(
       appBar: new AppBar(
         title: new Text(widget.title),
@@ -65,6 +66,10 @@ class _MyHomePageState extends State<ScreenUtilTest> {
             Text('设备的像素密度:${ScreenUtil.pixelRatio}'),
             Text('底部安全区距离:${ScreenUtil.bottomBarHeight}px'),
             Text('状态栏高度:${ScreenUtil.statusBarHeight}px'),
+            Text(
+              '我的大小是17px',
+              style: TextStyle(fontSize: ScreenUtil().setSp(17)),
+            ),
           ],
         ),
       ),
