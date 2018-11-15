@@ -41,7 +41,6 @@ class MyApp extends StatelessWidget {
 
   Widget _builder(BuildContext context, AsyncSnapshot snapshot) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
       title: 'Welcome to Flutter_study',
       theme: snapshot.data ? AppTheme().darkTheme : AppTheme().lightTheme,
       home: Routes(),
