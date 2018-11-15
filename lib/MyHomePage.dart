@@ -105,13 +105,6 @@ Lake1 Oeschinen lies at the foot of the Blüemlisalp in the Bernese Alps. Situat
               height: 240.0,
               fit: BoxFit.cover,
             ),
-            flightShuttleBuilder: (BuildContext flightContext,
-                Animation<double> animation,
-                HeroFlightDirection flightDirection,
-                BuildContext fromHeroContext,
-                BuildContext toHeroContext) {
-              return Icon(Icons.rotate_90_degrees_ccw);
-            },
           ),
           titleSection,
           buttonSection,
