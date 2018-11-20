@@ -5,6 +5,8 @@
  */
 
 import 'package:flutter/material.dart';
+import 'package:flutter_app/bean/number_attribution.dart';
+//import 'package:flutter_app/bean/number_attribution.dart';
 
 class ChipPage extends StatefulWidget {
   @override
@@ -16,6 +18,7 @@ class ChipState extends State<ChipPage> {
 
   @override
   Widget build(BuildContext context) {
+    formatJson();
     return Scaffold(
       appBar: AppBar(
         title: Text('chip'),
@@ -47,5 +50,19 @@ class ChipState extends State<ChipPage> {
             .toList(),
       ),
     );
+  }
+
+  void formatJson() {
+    var jsons = {
+      "province": "浙江",
+      "city": "杭州",
+      "areacode": "0571",
+      "zip": "310000",
+      "company": "中国移动",
+      "card": ""
+    };
+    NumberAttribution numberAttribution = NumberAttribution.fromJson(jsons);
+    var toJ = numberAttribution.toJson();
+    print(toJ);
   }
 }

@@ -13,6 +13,7 @@ import 'package:flutter_app/Routes.dart';
 import 'package:flutter_app/ScreenUtilTest.dart';
 import 'package:flutter_app/StateWidgetPage.dart';
 import 'package:flutter_app/SwiperPage.dart';
+import 'package:flutter_app/draggable_dragtargets.dart';
 import 'package:flutter_app/textField.dart';
 import 'package:flutter_app/ThemePage.dart';
 import 'package:flutter_app/Transform3D.dart';
@@ -69,6 +70,7 @@ class MyApp extends StatelessWidget {
         'CustomViewPage': (_) => CustomViewPage(),
         'TabPae': (_) => TabPage(),
         'backdropPage': (_) => BackdropPage(),
+        'Draggable': (_) => DraggableDragtargets(),
       },
     );
   }
