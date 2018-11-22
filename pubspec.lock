@@ -35,7 +35,7 @@ packages:
       name: cookie_jar
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.0.6"
+    version: "0.0.7"
   cupertino_icons:
     dependency: "direct main"
     description:
@@ -49,7 +49,7 @@ packages:
       name: dio
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.0.6"
+    version: "1.0.9"
   draggable_scrollbar:
     dependency: transitive
     description:
@@ -63,8 +63,13 @@ packages:
       name: english_words
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "3.1.4"
+    version: "3.1.5"
   flutter:
+    dependency: "direct main"
+    description: flutter
+    source: sdk
+    version: "0.0.0"
+  flutter_localizations:
     dependency: "direct main"
     description: flutter
     source: sdk
@@ -108,7 +113,7 @@ packages:
       name: fluttertoast
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.0.9"
+    version: "2.1.1"
   groovin_material_icons:
     dependency: "direct main"
     description:
@@ -116,6 +121,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.1.5"
+  intl:
+    dependency: transitive
+    description:
+      name: intl
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.15.7"
   json_annotation:
     dependency: "direct main"
     description:

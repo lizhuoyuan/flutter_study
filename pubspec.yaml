@@ -4,6 +4,8 @@ description: A new Flutter application.
 dependencies:
   flutter:
     sdk: flutter
+  flutter_localizations:
+    sdk: flutter
   english_words: ^3.1.0
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
@@ -44,6 +46,8 @@ flutter:
     - images/pic3.jpg
     - images/jay.jpg
     - images/beauty.jpg
+    - lib/locale/i18n_en.json
+    - lib/locale/i18n_zh.json
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.io/assets-and-images/#resolution-aware.
 

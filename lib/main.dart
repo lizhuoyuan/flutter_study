@@ -14,6 +14,7 @@ import 'package:flutter_app/ScreenUtilTest.dart';
 import 'package:flutter_app/StateWidgetPage.dart';
 import 'package:flutter_app/SwiperPage.dart';
 import 'package:flutter_app/draggable_dragtargets.dart';
+import 'package:flutter_app/locale/translations_delegate.dart';
 import 'package:flutter_app/textField.dart';
 import 'package:flutter_app/ThemePage.dart';
 import 'package:flutter_app/Transform3D.dart';
@@ -25,6 +26,8 @@ import 'package:flutter_app/tab_page.dart';
 import 'package:flutter_app/theme/app_theme.dart';
 import 'package:flutter_app/webview_page.dart';
 import 'package:flutter_app/login_page.dart';
+
+import 'package:flutter_localizations/flutter_localizations.dart';
 
 void main() => runApp(BlocProvider(child: MyApp()));
 
@@ -44,6 +47,12 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Welcome to Flutter_study',
       theme: snapshot.data ? AppTheme().darkTheme : AppTheme().lightTheme,
+      localizationsDelegates: [
+        const TranslationsDelegate(),
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+      ],
+      supportedLocales: [Locale("zh"), Locale("en")],
       home: Routes(),
       routes: <String, WidgetBuilder>{
         //静态路由,无法传参
