@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/FavoriteWidget.dart';
+import 'package:flutter_app/PavlovaPage.dart';
 
 class MyHomePage extends StatelessWidget {
   final String tag;
@@ -87,6 +88,7 @@ Lake1 Oeschinen lies at the foot of the Blüemlisalp in the Bernese Alps. Situat
 
     RaisedButton btn = new RaisedButton(
         onPressed: () {
+          print('tt');
           Navigator.of(context).pushNamed('Pavlova');
         },
         color: Colors.green,

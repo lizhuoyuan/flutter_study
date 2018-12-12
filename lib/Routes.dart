@@ -38,7 +38,8 @@ class RouteState extends State<Routes> {
     listData.add(ListItem("自定义View", "CustomViewPage", Icons.view_quilt));
     listData.add(ListItem("Tab的使用", "TabPae", Icons.view_quilt));
     listData.add(ListItem("backdropPage", "backdropPage", Icons.view_quilt));
-    listData.add(ListItem('可拖动组件','Draggable',Icons.drag_handle));
+    listData.add(ListItem('可拖动组件', 'Draggable', Icons.drag_handle));
+    listData.add(ListItem('分享', 'SharePage', Icons.share));
   }
 
   @override
