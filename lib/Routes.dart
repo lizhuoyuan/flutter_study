@@ -1,20 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/locale/translations_delegate.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class Routes extends StatefulWidget {
-  @override
-  State<StatefulWidget> createState() {
-    return RouteState();
-  }
-}
-
-class RouteState extends State<Routes> {
+class Routes extends StatelessWidget {
   final List<ListItem> listData = [];
 
-  @override
-  void initState() {
-    super.initState();
-    listData.add(ListItem("页面Home", "Home", Icons.home));
+  void initData(BuildContext context) {
+    listData.add(ListItem(
+        Translations.of(context).text('homePage'), "Home", Icons.home));
     listData.add(ListItem("页面Pavlova", "Pavlova", Icons.panorama_vertical));
     listData.add(ListItem("页面randomWords", "randomWords", Icons.book));
     listData.add(ListItem("图片", "Image", Icons.image));
@@ -38,8 +31,7 @@ class RouteState extends State<Routes> {
     listData.add(ListItem("自定义View", "CustomViewPage", Icons.view_quilt));
     listData.add(ListItem("Tab的使用", "TabPae", Icons.view_quilt));
     listData.add(ListItem("backdropPage", "backdropPage", Icons.view_quilt));
-    listData.add(ListItem('可拖动组件', 'Draggable', Icons.drag_handle));
-    listData.add(ListItem('分享', 'SharePage', Icons.share));
+    listData.add(ListItem('可拖动组件','Draggable',Icons.drag_handle));
   }
 
   @override
