@@ -41,7 +41,7 @@ class TextFieldAndCheckPageState extends State<TextFieldAndCheckPage> {
       appBar: AppBar(
         title: Text('输入和选择'),
       ),
-      body: Column(
+      body: ListView(
         children: <Widget>[
           TextField(
             /* onChanged: (text) {
@@ -79,7 +79,7 @@ class TextFieldAndCheckPageState extends State<TextFieldAndCheckPage> {
               maxLength: 5,
             ),
           ),
-          verificationCode(),
+          _form()
         ],
       ),
       floatingActionButton: FloatingActionButton(
@@ -143,7 +143,7 @@ class TextFieldAndCheckPageState extends State<TextFieldAndCheckPage> {
         letterSpacing: letterSpacing,
       ),
       decoration: InputDecoration(
-        hintText: 'Please input verification code',
+        hintText: '    请 输 入 验 证 码',
         hintStyle: TextStyle(fontSize: 14.0, letterSpacing: 0.0),
         enabledBorder: underLineBorder,
         focusedBorder: underLineBorder,
@@ -186,6 +186,7 @@ class TextFieldAndCheckPageState extends State<TextFieldAndCheckPage> {
                 labelText: '请输入密码)',
               ),
               obscureText: true),
+          verificationCode(),
           RaisedButton(
             onPressed: _login,
             child: Text('登录'),
