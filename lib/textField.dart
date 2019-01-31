@@ -6,6 +6,8 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'dart:ui' as ui;
+import 'package:path_drawing/path_drawing.dart';
 
 class TextFieldAndCheckPage extends StatefulWidget {
   @override
@@ -49,9 +51,12 @@ class TextFieldAndCheckPageState extends State<TextFieldAndCheckPage> {
             autofocus: false, //是否自动获取焦点
             controller: _textController,
             decoration: InputDecoration(
-              suffixIcon: Icon(Icons.chevron_right), //输入框内右侧图标
-              icon: Icon(Icons.person), //输入框左侧图标
-              prefixIcon: Icon(Icons.skip_previous), //输入框内左侧图标
+              suffixIcon: Icon(Icons.chevron_right),
+              //输入框内右侧图标
+              icon: Icon(Icons.person),
+              //输入框左侧图标
+              prefixIcon: Icon(Icons.skip_previous),
+              //输入框内左侧图标
               labelText: 'labelText',
               hintText: 'hintText',
               helperText: 'helperText',
@@ -74,6 +79,7 @@ class TextFieldAndCheckPageState extends State<TextFieldAndCheckPage> {
               maxLength: 5,
             ),
           ),
+          verificationCode(),
         ],
       ),
       floatingActionButton: FloatingActionButton(
@@ -116,6 +122,45 @@ class TextFieldAndCheckPageState extends State<TextFieldAndCheckPage> {
     });
   }
 
+  ///验证码组件
+  verificationCode() {
+    var textSize = 50.0;
+    var spaceWidth = 30.0;
+    var letterSpacing = 30.0;
+    var underLineBorder = DottedLineUnderlineInputBorder(
+      spaceWidth: spaceWidth,
+      textWidth: calcTrueTextSize(textSize),
+      textLength: 4,
+      letterSpacing: letterSpacing,
+      borderSide: BorderSide(color: Colors.black26, width: 2.0),
+    );
+    return TextField(
+      maxLength: 4,
+      keyboardType: TextInputType.number,
+      style: TextStyle(
+        fontSize: textSize,
+        color: Colors.black87,
+        letterSpacing: letterSpacing,
+      ),
+      decoration: InputDecoration(
+        hintText: 'Please input verification code',
+        hintStyle: TextStyle(fontSize: 14.0, letterSpacing: 0.0),
+        enabledBorder: underLineBorder,
+        focusedBorder: underLineBorder,
+      ),
+    );
+  }
+
+  ///测量单个数字宽度
+  double calcTrueTextSize(double textSize) {
+    var paragraph = ui.ParagraphBuilder(ui.ParagraphStyle(fontSize: textSize))
+      ..addText("0");
+    var p = paragraph.build()
+      ..layout(ui.ParagraphConstraints(width: double.infinity));
+
+    return p.minIntrinsicWidth;
+  }
+
   Widget _form() {
     return (Form(
       child: Column(
@@ -148,5 +193,42 @@ class TextFieldAndCheckPageState extends State<TextFieldAndCheckPage> {
         ],
       ),
     ));
+  }
+}
+
+class DottedLineUnderlineInputBorder extends UnderlineInputBorder {
+  final double textWidth; //字体宽度
+  final spaceWidth; //虚线间隔
+  final int textLength; //数字个数
+  final borderSide;
+  final letterSpacing; //字体间隔
+
+  DottedLineUnderlineInputBorder(
+      {this.textWidth,
+      this.borderSide,
+      this.spaceWidth,
+      this.textLength,
+      this.letterSpacing});
+
+  @override
+  void paint(
+    Canvas canvas,
+    Rect rect, {
+    double gapStart,
+    double gapExtent = 0.0,
+    double gapPercentage = 0.0,
+    TextDirection textDirection,
+  }) {
+    Path path = Path();
+    var startOffset = letterSpacing / 2;
+    path.moveTo(rect.bottomLeft.dx + startOffset, rect.bottomLeft.dy);
+    path.lineTo(rect.bottomLeft.dx + (textWidth + spaceWidth) * textLength,
+        rect.bottomRight.dy);
+    path = dashPath(path,
+        dashArray: CircularIntervalList<double>([
+          textWidth,
+          spaceWidth,
+        ]));
+    canvas.drawPath(path, borderSide.toPaint());
   }
 }
