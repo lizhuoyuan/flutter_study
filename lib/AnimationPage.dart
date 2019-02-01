@@ -19,39 +19,44 @@ class AnimationState extends State<AnimationPage>
   @override
   void initState() {
     super.initState();
-    print('init State');
 
     imageAnimationController = AnimationController(
       vsync: this,
       duration: Duration(seconds: 2),
     );
-    animation =
+
+    animation = Tween(begin: 0.0, end: 200.0).animate(imageAnimationController)
+      ..addStatusListener(_imageAnimationStatusListener);
+    /*animation =
         CurvedAnimation(parent: imageAnimationController, curve: Curves.easeIn)
-          ..addStatusListener(_imageAnimationStatusListener);
+          ..addStatusListener(_imageAnimationStatusListener);*/
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('动画'),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _startAnimation,
-        child: Icon(Icons.play_arrow),
-      ),
-      body: AnimationImage(
-        animation: animation,
-      )
-          /*GrowTransition(
-        animation: imageAnimation,
-        child: Image.asset(
-          'images/pic3.jpg',
-          fit: BoxFit.fill,
+        appBar: AppBar(
+          title: Text('动画'),
         ),
-      )*/
-          ,
-    );
+        floatingActionButton: FloatingActionButton(
+          onPressed: _startAnimation,
+          child: Icon(Icons.play_arrow),
+        ),
+        body: Column(
+          children: <Widget>[
+            GrowTransition(
+              animation: animation,
+              child: Image.asset(
+                'images/pic3.jpg',
+                fit: BoxFit.fill,
+              ),
+            ),
+            SizedBox(height: 50.0),
+            AnimationImage(
+              animation: animation,
+            )
+          ],
+        ));
   }
 
   @override
@@ -65,17 +70,19 @@ class AnimationState extends State<AnimationPage>
   }
 
   void _imageAnimationStatusListener(AnimationStatus status) {
-    print('status:$status');
-    if (status == AnimationStatus.completed)
+    if (status == AnimationStatus.completed) {
+      //动画结束之后执行反向动画
       imageAnimationController.reverse();
-    else if (status == AnimationStatus.dismissed)
+    } else if (status == AnimationStatus.dismissed) {
+      //动画恢复到初始状态后执行正向动画
       imageAnimationController.forward();
+    }
   }
 }
 
 class AnimationImage extends AnimatedWidget {
-  static final _sizeAnimation = Tween(begin: 0.0, end: 300.0);
-  static final _opacityAni = Tween(begin: 0.0, end: 1.0);
+  /*static final _sizeAnimation = Tween(begin: 0.0, end: 200.0);
+  static final _opacityAni = Tween(begin: 0.0, end: 1.0);*/
 
   AnimationImage({
     Key key,
@@ -86,11 +93,11 @@ class AnimationImage extends AnimatedWidget {
   Widget build(BuildContext context) {
     final Animation animation = listenable;
     return Opacity(
-      opacity: _opacityAni.evaluate(animation),
+      opacity: animation.value / 200,
       child: Image.asset(
         'images/pic3.jpg',
-        width: _sizeAnimation.evaluate(animation),
-        height: _sizeAnimation.evaluate(animation),
+        width: animation.value,
+        height: animation.value,
         fit: BoxFit.fill,
       ),
     );
@@ -115,10 +122,13 @@ class GrowTransition extends StatelessWidget {
   }
 
   Widget _animatedBuilder(BuildContext context, Widget child) {
-    return Container(
-      child: child,
-      height: animation.value,
-      width: animation.value,
+    return Opacity(
+      child: Container(
+        child: child,
+        height: animation.value,
+        width: animation.value,
+      ),
+      opacity: animation.value / 200,
     );
   }
 }
