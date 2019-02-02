@@ -18,6 +18,7 @@ class Routes extends StatelessWidget {
     listData.add(ListItem("Swiper", "Swiper", Icons.landscape));
     listData.add(ListItem("流式布局", "Wrap", Icons.landscape));
     listData.add(ListItem("动画", "Animation", Icons.landscape));
+    listData.add(ListItem('动画2', 'AnimationTwo', Icons.android));
     listData.add(ListItem("屏幕适配示例", "ScreenUtilPage", Icons.landscape));
     listData.add(
         ListItem("futureBuilder", "FutureBuilderPage", Icons.hourglass_full));

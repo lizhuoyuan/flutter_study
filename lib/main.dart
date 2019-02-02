@@ -16,6 +16,7 @@ import 'package:flutter_app/SwiperPage.dart';
 import 'package:flutter_app/ThemePage.dart';
 import 'package:flutter_app/Transform3D.dart';
 import 'package:flutter_app/WrapPage.dart';
+import 'package:flutter_app/animation_two.dart';
 import 'package:flutter_app/backdrop_page.dart';
 import 'package:flutter_app/custom_view.dart';
 import 'package:flutter_app/draggable_dragtargets.dart';
@@ -81,6 +82,7 @@ class MyApp extends StatelessWidget {
         'backdropPage': (_) => BackdropPage(),
         'Draggable': (_) => DraggableDragtargets(),
         'SharePage': (_) => SharePage(),
+        'AnimationTwo': (_) => AnimationTwo(),
       },
     );
   }
