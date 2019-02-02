@@ -26,7 +26,10 @@ class _AnimationTwoState extends State<AnimationTwo>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      floatingActionButton: FloatingActionButton(onPressed: _playAnimation),
+      floatingActionButton: FloatingActionButton(
+        onPressed: _playAnimation,
+        child: Icon(Icons.play_arrow),
+      ),
       body: Container(
         decoration: BoxDecoration(
             color: Colors.grey.withOpacity(0.2),
