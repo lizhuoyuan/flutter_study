@@ -3,9 +3,11 @@ import 'package:flutter_app/locale/translations_delegate.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class Routes extends StatelessWidget {
-  final List<ListItem> listData = [];
+  List<ListItem> listData;
 
   void initData(BuildContext context) {
+    print('初始化路由');
+    listData = [];
     listData.add(ListItem(
         Translations.of(context).text('homePage'), "Home", Icons.home));
     listData.add(ListItem("页面Pavlova", "Pavlova", Icons.panorama_vertical));
@@ -34,6 +36,7 @@ class Routes extends StatelessWidget {
     listData.add(ListItem("backdropPage", "backdropPage", Icons.view_quilt));
     listData.add(ListItem('可拖动组件', 'Draggable', Icons.drag_handle));
     listData.add(ListItem('分享', 'SharePage', Icons.share));
+    listData.add(ListItem('搜索', 'SearchPage', Icons.share));
   }
 
   @override
