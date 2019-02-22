@@ -6,7 +6,6 @@ class Routes extends StatelessWidget {
   List<ListItem> listData;
 
   void initData(BuildContext context) {
-    print('初始化路由');
     listData = [];
     listData.add(ListItem(
         Translations.of(context).text('homePage'), "Home", Icons.home));
@@ -36,7 +35,10 @@ class Routes extends StatelessWidget {
     listData.add(ListItem("backdropPage", "backdropPage", Icons.view_quilt));
     listData.add(ListItem('可拖动组件', 'Draggable', Icons.drag_handle));
     listData.add(ListItem('分享', 'SharePage', Icons.share));
-    listData.add(ListItem('搜索', 'SearchPage', Icons.share));
+    listData.add(ListItem('搜索', 'SearchPage', Icons.search));
+    listData.add(ListItem('mp4视频播放', 'VideoPlayerPage', Icons.video_library));
+    listData
+        .add(ListItem('Youtube视频播放', 'YoutubePlayerPage', Icons.video_library));
   }
 
   @override

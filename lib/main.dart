@@ -28,7 +28,9 @@ import 'package:flutter_app/share_page.dart';
 import 'package:flutter_app/tab_page.dart';
 import 'package:flutter_app/textField.dart';
 import 'package:flutter_app/theme/app_theme.dart';
+import 'package:flutter_app/video_player.dart';
 import 'package:flutter_app/webview_page.dart';
+import 'package:flutter_app/youtube_player.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
 void main() => runApp(BlocProvider(child: MyApp()));
@@ -85,6 +87,8 @@ class MyApp extends StatelessWidget {
         'SharePage': (_) => SharePage(),
         'AnimationTwo': (_) => AnimationTwo(),
         'SearchPage': (_) => SearchPage(),
+        'VideoPlayerPage': (_) => VideoPlayerPage(),
+        'YoutubePlayerPage': (_) => YoutubePlayerPage(),
       },
     );
   }
