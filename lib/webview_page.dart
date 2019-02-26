@@ -9,14 +9,14 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_webview_plugin/flutter_webview_plugin.dart';
 
-String url = "https://juejin.im/post/5bc5a56a5188255c352d88fe";
-
 class WebViewPage extends StatefulWidget {
   @override
   State<StatefulWidget> createState() => WebViewPageState();
 }
 
 class WebViewPageState extends State<WebViewPage> {
+  String url;
+
   String title = "Widget webview";
   bool isloading = false;
   FlutterWebviewPlugin flutterWebviewPlugin;
@@ -24,6 +24,7 @@ class WebViewPageState extends State<WebViewPage> {
   // WebView加载状态变化监听器
   StreamSubscription<WebViewStateChanged> _onStateChanged;
   StreamSubscription<double> _onScrollYChanged;
+
   @override
   Widget build(BuildContext context) {
     return WebviewScaffold(
@@ -52,6 +53,8 @@ class WebViewPageState extends State<WebViewPage> {
   @override
   void initState() {
     super.initState();
+
+    url = "https://www.youtube.com/watch?v=g_fSistU3MQ";
     flutterWebviewPlugin = new FlutterWebviewPlugin();
 
     _onScrollYChanged =

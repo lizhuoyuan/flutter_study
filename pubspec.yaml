@@ -26,6 +26,7 @@ dependencies:
   path_drawing: ^0.4.0
   video_player: ^0.10.0+2
   flutter_youtube: ^1.1.4
+  youtube_player: ^3.1.1+3
 dev_dependencies:
   flutter_test:
     sdk: flutter

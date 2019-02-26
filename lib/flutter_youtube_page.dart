@@ -7,12 +7,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_youtube/flutter_youtube.dart';
 
-class YoutubePlayerPage extends StatefulWidget {
+class FlutterYoutubePage extends StatefulWidget {
   @override
-  _YoutubePlayerPageState createState() => _YoutubePlayerPageState();
+  _FlutterYoutubePageState createState() => _FlutterYoutubePageState();
 }
 
-class _YoutubePlayerPageState extends State<YoutubePlayerPage> {
+class _FlutterYoutubePageState extends State<FlutterYoutubePage> {
   TextEditingController textEditingControllerUrl = new TextEditingController();
   TextEditingController textEditingControllerId = new TextEditingController();
 

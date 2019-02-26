@@ -23,13 +23,7 @@ class ChipState extends State<ChipPage> {
       appBar: AppBar(
         title: Text('chip'),
         actions: <Widget>[
-          IconButton(
-              icon: Icon(Icons.add),
-              onPressed: () {
-                setState(() {
-                  list.add('index:${list.length}');
-                });
-              }),
+          RightTopIconButton(),
         ],
       ),
       body: Wrap(
@@ -64,5 +58,21 @@ class ChipState extends State<ChipPage> {
     NumberAttribution numberAttribution = NumberAttribution.fromJson(jsons);
     var toJ = numberAttribution.toJson();
     print(toJ);
+  }
+}
+
+class RightTopIconButton extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    print('buildIconButton');
+    return IconButton(
+      icon: Icon(Icons.add),
+      onPressed: null,
+      /*onPressed: () {
+          setState(() {
+            list.add('index:${list.length}');
+          });
+        }*/
+    );
   }
 }

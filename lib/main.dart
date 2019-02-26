@@ -30,7 +30,8 @@ import 'package:flutter_app/textField.dart';
 import 'package:flutter_app/theme/app_theme.dart';
 import 'package:flutter_app/video_player.dart';
 import 'package:flutter_app/webview_page.dart';
-import 'package:flutter_app/youtube_player.dart';
+import 'package:flutter_app/flutter_youtube_page.dart';
+import 'package:flutter_app/youtube_player_page.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
 void main() => runApp(BlocProvider(child: MyApp()));
@@ -88,7 +89,8 @@ class MyApp extends StatelessWidget {
         'AnimationTwo': (_) => AnimationTwo(),
         'SearchPage': (_) => SearchPage(),
         'VideoPlayerPage': (_) => VideoPlayerPage(),
-        'YoutubePlayerPage': (_) => YoutubePlayerPage(),
+        'FlutterYoutubePage': (_) => FlutterYoutubePage(),
+        'YoutubePlayerPage':(_)=>YoutubePlayerPage(),
       },
     );
   }

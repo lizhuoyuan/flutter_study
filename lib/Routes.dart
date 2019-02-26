@@ -37,8 +37,10 @@ class Routes extends StatelessWidget {
     listData.add(ListItem('分享', 'SharePage', Icons.share));
     listData.add(ListItem('搜索', 'SearchPage', Icons.search));
     listData.add(ListItem('mp4视频播放', 'VideoPlayerPage', Icons.video_library));
-    listData
-        .add(ListItem('Youtube视频播放', 'YoutubePlayerPage', Icons.video_library));
+    listData.add(
+        ListItem('Youtube视频播放', 'FlutterYoutubePage', Icons.video_library));
+    listData.add(
+        ListItem('Youtube视频播放2', 'YoutubePlayerPage', Icons.video_library));
   }
 
   @override
