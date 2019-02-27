@@ -23,7 +23,7 @@ class ChipState extends State<ChipPage> {
       appBar: AppBar(
         title: Text('chip'),
         actions: <Widget>[
-          RightTopIconButton(),
+          const RightTopIconButton(),
         ],
       ),
       body: Wrap(
@@ -62,6 +62,8 @@ class ChipState extends State<ChipPage> {
 }
 
 class RightTopIconButton extends StatelessWidget {
+  const RightTopIconButton();
+
   @override
   Widget build(BuildContext context) {
     print('buildIconButton');
