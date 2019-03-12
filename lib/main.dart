@@ -20,11 +20,13 @@ import 'package:flutter_app/animation_two.dart';
 import 'package:flutter_app/backdrop_page.dart';
 import 'package:flutter_app/custom_view.dart';
 import 'package:flutter_app/draggable_dragtargets.dart';
+import 'package:flutter_app/flutter_native_web.dart';
 import 'package:flutter_app/locale/translations_delegate.dart';
 import 'package:flutter_app/login_page.dart';
 import 'package:flutter_app/rxdart/bloc_provider.dart';
 import 'package:flutter_app/search_page.dart';
 import 'package:flutter_app/share_page.dart';
+import 'package:flutter_app/sqflite_page.dart';
 import 'package:flutter_app/tab_page.dart';
 import 'package:flutter_app/textField.dart';
 import 'package:flutter_app/theme/app_theme.dart';
@@ -90,7 +92,9 @@ class MyApp extends StatelessWidget {
         'SearchPage': (_) => SearchPage(),
         'VideoPlayerPage': (_) => VideoPlayerPage(),
         'FlutterYoutubePage': (_) => FlutterYoutubePage(),
-        'YoutubePlayerPage':(_)=>YoutubePlayerPage(),
+        'YoutubePlayerPage': (_) => YoutubePlayerPage(),
+        'FlutterNativeWeb': (_) => FlutterNativeWebPage(),
+        'SqfLitePage': (_) => SqfLite(),
       },
     );
   }

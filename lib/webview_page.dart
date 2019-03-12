@@ -27,8 +27,7 @@ class WebViewPageState extends State<WebViewPage> {
 
   @override
   Widget build(BuildContext context) {
-    return WebviewScaffold(
-      url: url,
+    return Scaffold(
       appBar: AppBar(
         title: Text(title),
         centerTitle: true,
@@ -46,6 +45,14 @@ class WebViewPageState extends State<WebViewPage> {
                     }),
           )
         ],
+      ),
+      body: Container(
+        height: 200,
+        width: 200,
+        child: WebviewScaffold(
+
+          url: url,
+        ),
       ),
     );
   }

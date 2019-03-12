@@ -41,6 +41,9 @@ class Routes extends StatelessWidget {
         ListItem('Youtube视频播放', 'FlutterYoutubePage', Icons.video_library));
     listData.add(
         ListItem('Youtube视频播放2', 'YoutubePlayerPage', Icons.video_library));
+    listData
+        .add(ListItem('FlutterNativeWeb插件的使用', 'FlutterNativeWeb', Icons.web));
+    listData.add(ListItem('sqflite的使用', 'SqfLitePage', Icons.crop_square));
   }
 
   @override
