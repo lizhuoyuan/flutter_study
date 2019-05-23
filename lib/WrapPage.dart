@@ -9,7 +9,16 @@ import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
 class WrapPage extends StatelessWidget {
-  final List list = ['斗破苍穹', '遮天', '斗罗大陆', '大主宰', '凡人修仙传', '盗墓笔记', '校花的贴身高手', '诛仙'];
+  final List list = [
+    '斗破苍穹',
+    '遮天',
+    '斗罗大陆',
+    '大主宰',
+    '凡人修仙传',
+    '盗墓笔记',
+    '校花的贴身高手',
+    '诛仙'
+  ];
 
   List<Widget> _childList(BuildContext context) {
     List<Widget> childs = [];
@@ -17,7 +26,22 @@ class WrapPage extends StatelessWidget {
       childs.add(Text(list[i]));
     }*/
     childs.addAll(
-      list.map((item) => Textbook(item)),
+      list.map((item) => Container(
+          child: Row(
+            mainAxisSize: MainAxisSize.min,
+            children: <Widget>[
+              Container(
+                color: Colors.red,
+                child: Text(
+                  '#',
+                  style: TextStyle(color: Colors.white),
+                ),
+              ),
+              Text(item),
+            ],
+          ),
+          padding: EdgeInsets.all(8),
+          color: Colors.blue)),
     );
     // list.forEach((item) => childs.add(Text(item)));
     return childs;
