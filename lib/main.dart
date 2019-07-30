@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/AnimationPage.dart';
+import 'package:flutter_app/animation_page.dart';
 import 'package:flutter_app/ChipPage.dart';
 import 'package:flutter_app/ExpansionTilePage.dart';
 import 'package:flutter_app/FutureBuilderPage.dart';
