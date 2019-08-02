@@ -9,8 +9,8 @@ class Routes extends StatelessWidget {
     listData = [];
     listData.add(ListItem(
         Translations.of(context).text('homePage'), "Home", Icons.home));
-    listData.add(ListItem("页面Pavlova", "Pavlova", Icons.panorama_vertical));
-    listData.add(ListItem("页面randomWords", "randomWords", Icons.book));
+    listData.add(ListItem("Pavlova示例", "Pavlova", Icons.panorama_vertical));
+    listData.add(ListItem("randomWords示例", "randomWords", Icons.book));
     listData.add(ListItem("图片", "Image", Icons.image));
     listData.add(ListItem("GridView", "GridView", Icons.grid_on));
     listData.add(ListItem("StateWidget", "StateWidget", Icons.widgets));

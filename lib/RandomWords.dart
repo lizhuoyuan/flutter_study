@@ -21,41 +21,7 @@ class RandomWordsState extends State<RandomWords> {
           onPressed: _pushSaved,
         )
       ]),
-      body: new Center(
-        child: Column(
-          children: <Widget>[
-            Row(
-              children: <Widget>[
-                Container(
-                  width: ScreenUtil().setWidth(375),
-                  height: ScreenUtil().setHeight(200),
-                  color: Colors.red,
-                  child: Text(
-                    '我的宽度${ScreenUtil().setWidth(375)}dp',
-                    style: TextStyle(color: Colors.white),
-                  ),
-                ),
-                Container(
-                  width: ScreenUtil().setWidth(375),
-                  height: ScreenUtil().setHeight(200),
-                  color: Colors.blue,
-                  child: Text('我的宽度${ScreenUtil().setWidth(375)}dp',
-                      style: TextStyle(color: Colors.white)),
-                ),
-              ],
-            ),
-            Text('设备的屏幕宽度：${ScreenUtil.screenWidth}px'),
-            Text('设备的屏幕高度:${ScreenUtil.screenHeight}px'),
-            Text('设备的像素密度:${ScreenUtil.pixelRatio}'),
-            Text('底部安全区距离:${ScreenUtil.bottomBarHeight}px'),
-            Text('状态栏高度:${ScreenUtil.statusBarHeight}px'),
-            Text('宽度相对于设计稿放大的倍数:${ScreenUtil().scaleWidth}'),
-            Text('高度相对于设计稿放大的倍数:${ScreenUtil().scaleHeight}'),
-          ],
-        ),
-      ),
-
-      //_buildSuggestions(),
+      body: _buildSuggestions(),
     );
   }
 
