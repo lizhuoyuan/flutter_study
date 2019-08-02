@@ -36,8 +36,9 @@ class SearchBarDelegate extends SearchDelegate<String> {
   @override
   Widget buildResults(BuildContext context) {
     return Center(
-        child: Text(
-            query.length == 0 ? '搜索内容不能为空,当然也可以展示推荐的东西' : '你好，我是$query的搜索结果'));
+        child: query.length == 0
+            ? Text('搜索内容不能为空,当然也可以展示推荐的东西')
+            : _searchResult());
   }
 
   ///显示建议的搜索内容(搜索热词) ， 点击直接展示相关搜索结果
@@ -71,5 +72,17 @@ class SearchBarDelegate extends SearchDelegate<String> {
               )),
         )));
     return searchRecommendation;
+  }
+
+  ///搜索结果
+  Widget _searchResult() {
+    return ListView.builder(
+      itemBuilder: _itemBuilder,
+      itemCount: 5,
+    );
+  }
+
+  Widget _itemBuilder(BuildContext context, int index) {
+    return Text('你好，我是$query的搜索结果$index');
   }
 }
