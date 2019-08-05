@@ -41,7 +41,7 @@ class SearchBarDelegate extends SearchDelegate<String> {
             : _searchResult());
   }
 
-  ///显示建议的搜索内容(搜索热词) ， 点击直接展示相关搜索结果
+  ///显示建议的搜索内容(搜索热词,搜索历史) ， 点击直接展示相关搜索结果
   @override
   Widget buildSuggestions(BuildContext context) {
     return Padding(
@@ -77,12 +77,10 @@ class SearchBarDelegate extends SearchDelegate<String> {
   ///搜索结果
   Widget _searchResult() {
     return ListView.builder(
-      itemBuilder: _itemBuilder,
+      itemBuilder: (BuildContext context, int index) {
+        return Text('你好，我是$query的搜索结果$index');
+      },
       itemCount: 5,
     );
-  }
-
-  Widget _itemBuilder(BuildContext context, int index) {
-    return Text('你好，我是$query的搜索结果$index');
   }
 }
