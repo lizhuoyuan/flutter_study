@@ -1,7 +1,10 @@
 /*
  * Created by 李卓原 on 2018/9/30.
  * email: zhuoyuan93@gmail.com
- * 关于状态改变引起的不必要的页面刷新：https://github.com/flutter/flutter/issues/11426#issuecomment-414047398
+ * 关于状态改变引起的不必要的页面刷新：
+ * https://github.com/flutter/flutter/issues/11426#issuecomment-414047398
+ *
+ * 2019/8/8 豆瓣api已挂...择日更新代码
  */
 
 import 'dart:async';
@@ -22,7 +25,7 @@ class FutureBuilderState extends State<FutureBuilderPage> {
   _gerData() {
     return _memoizer.runOnce(() async {
       return await HttpUtil()
-          .get('http://api.douban.com/v2/movie/top250', data: {'count': 15});
+          .get('http://api.douban.com/v2/movie/top15', data: {'count': 15});
     });
   }
 
