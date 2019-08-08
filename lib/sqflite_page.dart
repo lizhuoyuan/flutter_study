@@ -39,10 +39,12 @@ class _SqfLiteState extends State<SqfLite> {
                 ),
               ],
             ),
-            ListView.builder(
-              itemBuilder: _itemBuilder,
-              shrinkWrap: true,
-              itemCount: notes.length,
+            Expanded(
+              child: ListView.builder(
+                itemBuilder: _itemBuilder,
+                shrinkWrap: true,
+                itemCount: notes.length,
+              ),
             )
           ],
         ),
@@ -52,7 +54,8 @@ class _SqfLiteState extends State<SqfLite> {
 
   void _insertData() async {
     var db = DatabaseHelper();
-    Note todo = new Note(i, 'imarge', i, i, 0.1 * i, 0.1 * i);
+    Note todo = new Note(DateTime.now().millisecondsSinceEpoch, 'imarge', i, i,
+        0.1 * i, 0.1 * i);
     i++;
     await db.saveNote(todo);
 
