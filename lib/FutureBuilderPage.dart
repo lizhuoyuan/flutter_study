@@ -25,7 +25,7 @@ class FutureBuilderState extends State<FutureBuilderPage> {
   _gerData() {
     return _memoizer.runOnce(() async {
       return await HttpUtil()
-          .get('http://api.douban.com/v2/movie/top15', data: {'count': 15});
+          .get('http://rap2api.taobao.org/app/mock/162762/skill/dragoon');
     });
   }
 
@@ -95,22 +95,22 @@ class FutureBuilderState extends State<FutureBuilderPage> {
   }
 
   Widget _createListView(BuildContext context, AsyncSnapshot snapshot) {
-    List movies = snapshot.data['subjects'];
+    List movies = snapshot.data['data'];
     return ListView.builder(
       itemBuilder: (context, index) => _itemBuilder(context, index, movies),
       itemCount: movies.length * 2,
     );
   }
 
-  Widget _itemBuilder(BuildContext context, int index, movies) {
+  Widget _itemBuilder(BuildContext context, int index, skills) {
     if (index.isOdd) {
       return Divider();
     }
     index = index ~/ 2;
     return ListTile(
-      title: Text(movies[index]['title']),
-      leading: Text(movies[index]['year']),
-      trailing: Text(movies[index]['original_title']),
+      title: Text(skills[index]['name']),
+      leading: Text(skills[index]['type']),
+      trailing: Text(skills[index]['slv']),
     );
   }
 }
