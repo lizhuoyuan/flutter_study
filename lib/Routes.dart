@@ -44,6 +44,7 @@ class Routes extends StatelessWidget {
     listData
         .add(ListItem('FlutterNativeWeb插件的使用', 'FlutterNativeWeb', Icons.web));
     listData.add(ListItem('sqflite的使用', 'SqfLitePage', Icons.crop_square));
+    listData.add(ListItem('步骤条Stepper ', 'StepperPage', Icons.short_text));
   }
 
   @override

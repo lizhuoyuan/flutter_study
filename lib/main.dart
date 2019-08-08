@@ -36,6 +36,8 @@ import 'package:flutter_app/flutter_youtube_page.dart';
 import 'package:flutter_app/youtube_player_page.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
+import 'stepper_page.dart';
+
 void main() => runApp(BlocProvider(child: MyApp()));
 
 class MyApp extends StatelessWidget {
@@ -95,6 +97,7 @@ class MyApp extends StatelessWidget {
         'YoutubePlayerPage': (_) => YoutubePlayerPage(),
         'FlutterNativeWeb': (_) => FlutterNativeWebPage(),
         'SqfLitePage': (_) => SqfLite(),
+        'StepperPage': (_) => StepperPage(),
       },
     );
   }
