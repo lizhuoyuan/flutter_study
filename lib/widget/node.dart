@@ -22,7 +22,14 @@ class _NodeWidgetState extends State<NodeWidget> {
   @override
   Widget build(BuildContext context) {
     var me = InkWell(
-      child: widget.node.me,
+      child: Row(
+        children: <Widget>[
+          Icon(showList
+              ? Icons.keyboard_arrow_down
+              : Icons.keyboard_arrow_right),
+          widget.node.me
+        ],
+      ),
       onTap: () {
         setState(() {
           showList = !showList;
@@ -30,12 +37,14 @@ class _NodeWidgetState extends State<NodeWidget> {
       },
     );
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         me,
         if (showList)
           Padding(
             padding: EdgeInsets.only(left: 20),
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: widget.node.children.map((node) => node.me).toList(),
             ),
           )
