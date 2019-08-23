@@ -24,9 +24,10 @@ class _NodeWidgetState extends State<NodeWidget> {
     var me = InkWell(
       child: Row(
         children: <Widget>[
-          Icon(showList
-              ? Icons.keyboard_arrow_down
-              : Icons.keyboard_arrow_right),
+          Icon(
+            showList ? Icons.keyboard_arrow_down : Icons.keyboard_arrow_right,
+            size: 20,
+          ),
           widget.node.me
         ],
       ),
