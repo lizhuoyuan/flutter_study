@@ -23,6 +23,7 @@ import 'package:flutter_app/draggable_dragtargets.dart';
 import 'package:flutter_app/flutter_native_web.dart';
 import 'package:flutter_app/locale/translations_delegate.dart';
 import 'package:flutter_app/login_page.dart';
+import 'package:flutter_app/page/tree_page.dart';
 import 'package:flutter_app/rxdart/bloc_provider.dart';
 import 'package:flutter_app/search_page.dart';
 import 'package:flutter_app/share_page.dart';
@@ -98,6 +99,7 @@ class MyApp extends StatelessWidget {
         'FlutterNativeWeb': (_) => FlutterNativeWebPage(),
         'SqfLitePage': (_) => SqfLite(),
         'StepperPage': (_) => StepperPage(),
+        'TreePage': (_) => TreePage(),
       },
     );
   }
