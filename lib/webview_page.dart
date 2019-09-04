@@ -50,7 +50,6 @@ class WebViewPageState extends State<WebViewPage> {
         height: 200,
         width: 200,
         child: WebviewScaffold(
-
           url: url,
         ),
       ),
@@ -89,6 +88,9 @@ class WebViewPageState extends State<WebViewPage> {
             setState(() {
               isloading = false;
             });
+            break;
+          case WebViewState.abortLoad:
+            // TODO: Handle this case.
             break;
         }
       }
