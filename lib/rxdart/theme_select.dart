@@ -21,7 +21,7 @@ class ThemeSelect {
 
   Future changeTheme(bool value) async {
     SharedPreferences preferences = await SharedPreferences.getInstance();
-    await preferences.setBool("isNight", value);
+    preferences.setBool("isNight", value);
 
     return _subject.add(value);
   }
