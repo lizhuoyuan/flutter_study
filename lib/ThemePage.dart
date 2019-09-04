@@ -21,9 +21,7 @@ class ThemeState extends State<ThemePage> {
 
   @override
   Widget build(BuildContext context) {
-    //final appModel = AppModel.of(context);
     themeSelect = BlocProvider.of(context);
-
     return Scaffold(
       appBar: AppBar(
         title: Text('夜间模式'),

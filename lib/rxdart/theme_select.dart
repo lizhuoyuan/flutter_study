@@ -6,17 +6,34 @@
 import 'dart:async';
 
 import 'package:rxdart/rxdart.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class ThemeSelect {
-  bool isNight = false;
+  ThemeSelect() {
+    print("theme select cons");
+
+    initTheme();
+  }
 
   var _subject = BehaviorSubject<bool>();
 
   Stream<bool> get value => _subject.stream;
 
-  void changeTheme(bool value) => _subject.add(value);
+  Future changeTheme(bool value) async {
+    SharedPreferences preferences = await SharedPreferences.getInstance();
+    await preferences.setBool("isNight", value);
+
+    return _subject.add(value);
+  }
 
   void dispose() {
     _subject.close();
+  }
+
+  void initTheme() async {
+    SharedPreferences preferences = await SharedPreferences.getInstance();
+    bool isNight = preferences.getBool("isNight") ?? false;
+    preferences.setBool("isNight", isNight);
+    _subject.add(isNight);
   }
 }
