@@ -19,11 +19,10 @@ class ThemeSelect {
 
   Stream<bool> get value => _subject.stream;
 
-  Future changeTheme(bool value) async {
+  void changeTheme(bool value) async {
     SharedPreferences preferences = await SharedPreferences.getInstance();
     preferences.setBool("isNight", value);
-
-    return _subject.add(value);
+    _subject.add(value);
   }
 
   void dispose() {
