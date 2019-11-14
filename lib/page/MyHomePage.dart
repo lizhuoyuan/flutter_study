@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/FavoriteWidget.dart';
-import 'package:flutter_app/PavlovaPage.dart';
+
+import 'FavoriteWidget.dart';
 
 class MyHomePage extends StatelessWidget {
   final String tag;

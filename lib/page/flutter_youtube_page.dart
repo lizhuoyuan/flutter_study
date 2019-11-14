@@ -96,7 +96,7 @@ class _FlutterYoutubePageState extends State<FlutterYoutubePage> {
   void playYoutubeVideoEdit() {
     var youtube = new FlutterYoutube();
 
-    youtube.onVideoEnded.listen((onData) {
+    FlutterYoutube.onVideoEnded.listen((onData) {
       //todo 当视频播放完成时，执行你的动作
     });
 
@@ -109,7 +109,7 @@ class _FlutterYoutubePageState extends State<FlutterYoutubePage> {
   void playYoutubeVideoIdEdit() {
     var youtube = new FlutterYoutube();
 
-    youtube.onVideoEnded.listen((onData) {
+    FlutterYoutube.onVideoEnded.listen((onData) {
       //todo 当视频播放完成时，执行你的动作
     });
 
@@ -122,7 +122,7 @@ class _FlutterYoutubePageState extends State<FlutterYoutubePage> {
   void playYoutubeVideoIdEditAuto() {
     var youtube = new FlutterYoutube();
 
-    youtube.onVideoEnded.listen((onData) {
+    FlutterYoutube.onVideoEnded.listen((onData) {
       //todo 当视频播放完成时，执行你的动作
     });
 

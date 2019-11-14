@@ -3,10 +3,11 @@ import 'package:flutter_app/locale/translations_delegate.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class Routes extends StatelessWidget {
-  List<ListItem> listData;
+  final List<ListItem> listData = [];
 
   void initData(BuildContext context) {
-    listData = [];
+    listData.clear();
+
     listData.add(ListItem(
         Translations.of(context).text('homePage'), "Home", Icons.home));
     listData.add(ListItem("Pavlova示例", "Pavlova", Icons.panorama_vertical));

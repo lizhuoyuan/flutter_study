@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/MyHomePage.dart';
+import 'package:flutter_app/page/MyHomePage.dart';
 
 class GridViewPage extends StatefulWidget {
   @override
