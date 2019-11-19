@@ -39,9 +39,11 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 
 import 'page/stepper_page.dart';
 
-void main() => runApp(BlocProvider(child: MyApp()));
+void main() => runApp(BlocProvider(child: const MyApp()));
 
 class MyApp extends StatelessWidget {
+  const MyApp();
+
   @override
   Widget build(BuildContext context) {
     //AppModel appModel = AppModel();
