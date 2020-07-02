@@ -60,7 +60,7 @@ class WebViewPageState extends State<WebViewPage> {
   void initState() {
     super.initState();
 
-    url = "https://www.youtube.com/watch?v=g_fSistU3MQ";
+    url = "";
     flutterWebviewPlugin = new FlutterWebviewPlugin();
 
     _onScrollYChanged =
