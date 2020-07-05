@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_app/locale/translations_delegate.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class Routes extends StatelessWidget {
+class RoutePage extends StatelessWidget {
   final List<ListItem> listData = [];
 
   void initData(BuildContext context) {
@@ -40,13 +40,12 @@ class Routes extends StatelessWidget {
     listData.add(ListItem('mp4视频播放', 'VideoPlayerPage', Icons.video_library));
     listData.add(
         ListItem('Youtube视频播放', 'FlutterYoutubePage', Icons.video_library));
-    listData.add(
-        ListItem('Youtube视频播放2', 'YoutubePlayerPage', Icons.video_library));
     listData
         .add(ListItem('FlutterNativeWeb插件的使用', 'FlutterNativeWeb', Icons.web));
     listData.add(ListItem('sqflite的使用', 'SqfLitePage', Icons.crop_square));
     listData.add(ListItem('步骤条Stepper ', 'StepperPage', Icons.short_text));
     listData.add(ListItem('类似于qq列表的组件树', 'TreePage', Icons.people));
+    listData.add(ListItem('Sliver', 'Sliver', Icons.list));
   }
 
   @override
