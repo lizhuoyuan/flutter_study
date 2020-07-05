@@ -103,7 +103,7 @@
         <entry key="flutter_screenutil">
           <value>
             <list>
-              <option value="$PROJECT_DIR$/../../flutter/.pub-cache/hosted/pub.flutter-io.cn/flutter_screenutil-0.5.3/lib" />
+              <option value="$PROJECT_DIR$/../../flutter/.pub-cache/hosted/pub.flutter-io.cn/flutter_screenutil-2.2.0/lib" />
             </list>
           </value>
         </entry>
@@ -451,7 +451,7 @@
       <root url="file://$PROJECT_DIR$/../../flutter/.pub-cache/hosted/pub.flutter-io.cn/dio-1.0.17/lib" />
       <root url="file://$PROJECT_DIR$/../../flutter/.pub-cache/hosted/pub.flutter-io.cn/english_words-3.1.5/lib" />
       <root url="file://$PROJECT_DIR$/../../flutter/.pub-cache/hosted/pub.flutter-io.cn/flutter_page_indicator-0.0.3/lib" />
-      <root url="file://$PROJECT_DIR$/../../flutter/.pub-cache/hosted/pub.flutter-io.cn/flutter_screenutil-0.5.3/lib" />
+      <root url="file://$PROJECT_DIR$/../../flutter/.pub-cache/hosted/pub.flutter-io.cn/flutter_screenutil-2.2.0/lib" />
       <root url="file://$PROJECT_DIR$/../../flutter/.pub-cache/hosted/pub.flutter-io.cn/flutter_share_me-0.6.0/lib" />
       <root url="file://$PROJECT_DIR$/../../flutter/.pub-cache/hosted/pub.flutter-io.cn/flutter_swiper-1.1.6/lib" />
       <root url="file://$PROJECT_DIR$/../../flutter/.pub-cache/hosted/pub.flutter-io.cn/flutter_webview_plugin-0.3.11/lib" />

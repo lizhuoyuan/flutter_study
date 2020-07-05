@@ -17,7 +17,6 @@ class _AnimationTwoState extends State<AnimationTwo>
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     _animationController =
         AnimationController(vsync: this, duration: Duration(seconds: 2));
@@ -32,10 +31,9 @@ class _AnimationTwoState extends State<AnimationTwo>
       ),
       body: Container(
         decoration: BoxDecoration(
-            color: Colors.grey.withOpacity(0.2),
             border: Border.all(
-              color: Colors.black,
-            )),
+          color: Colors.black,
+        )),
         child: StaggerAnimation(controller: _animationController),
       ),
     );
