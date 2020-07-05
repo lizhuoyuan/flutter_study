@@ -43,7 +43,6 @@ class _SliverPageState extends State<SliverPage> {
             delegate: SliverChildBuilderDelegate(
               _reportBuilder,
               childCount: list.length + 1,
-              addAutomaticKeepAlives:
             ),
           ),
           SliverToBoxAdapter(
