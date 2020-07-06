@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/locale/translations_delegate.dart';
-import 'package:flutter_app/page/route_page.dart';
 import 'package:flutter_app/routes.dart';
 import 'package:flutter_app/rxdart/bloc_provider.dart';
 import 'package:flutter_app/theme/app_theme.dart';
@@ -32,8 +31,9 @@ class MyApp extends StatelessWidget {
         GlobalWidgetsLocalizations.delegate,
       ],
       supportedLocales: [Locale("zh"), Locale("en")],
-      home: RoutePage(),
+      initialRoute: '/',
       routes: routes,
+      onGenerateRoute: onGenerateRoute,
     );
   }
 }

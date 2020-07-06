@@ -89,7 +89,8 @@ class ListItemWidget extends StatelessWidget {
         leading: Icon(listItem.iconData),
         trailing: Icon(Icons.arrow_forward),
         onTap: () {
-          Navigator.pushNamed(context, listItem.routeName);
+          Navigator.pushNamed(context, listItem.routeName,
+              arguments: listItem.title);
         });
   }
 }

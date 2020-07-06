@@ -9,6 +9,8 @@ class MyHomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    print(ModalRoute.of(context).settings.arguments);
+
     Widget titleSection = Container(
       padding: const EdgeInsets.all(32.0),
       child: Row(
@@ -88,7 +90,6 @@ Lake1 Oeschinen lies at the foot of the Blüemlisalp in the Bernese Alps. Situat
 
     RaisedButton btn = new RaisedButton(
         onPressed: () {
-          print('tt');
           Navigator.of(context).pushNamed('Pavlova');
         },
         color: Colors.green,
@@ -122,6 +123,7 @@ Lake1 Oeschinen lies at the foot of the Blüemlisalp in the Bernese Alps. Situat
   }
 
   void _floatOnPress() {
-    print('press');
+    print('add asda');
+    //routes['asda'] = (_) => AliveHomePage();
   }
 }

@@ -32,6 +32,7 @@ class _MyHomePageState extends State<AliveHomePage> with AutomaticKeepAliveClien
 
   @override
   Widget build(BuildContext context) {
+    super.build(context);
     return new Scaffold(
       body: new Center(
         child: new Column(

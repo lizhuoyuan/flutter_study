@@ -31,25 +31,35 @@ class _TabPageState extends State<TabPage> with SingleTickerProviderStateMixin {
             tabs: list
                 .map(
                   (item) => Tab(
-                        key: PageStorageKey('$item'),
-                        child: Text(
-                          '$item',
-                          style: TextStyle(color: Colors.black),
-                        ),
-                      ),
+                    key: PageStorageKey('$item'),
+                    child: Text(
+                      '$item',
+                      style: TextStyle(color: Colors.black),
+                    ),
+                  ),
                 )
                 .toList()),
       ),
-      body: TabBarView(
-          controller: _tabController,
-          children: list
-              .map(
-                (item) => Container(
-                      key: PageStorageKey('$item'),
-                      child: TabItemView(item: item),
-                    ),
-              )
-              .toList()),
+      body: Column(
+        children: <Widget>[
+          Expanded(
+            child: TabBarView(
+                controller: _tabController,
+                children: list
+                    .map(
+                      (item) => ListView(
+                        children: <Widget>[
+                          Container(
+                            key: PageStorageKey('$item'),
+                            child: TabItemView(item: item),
+                          )
+                        ],
+                      ),
+                    )
+                    .toList()),
+          ),
+        ],
+      ),
     );
   }
 }

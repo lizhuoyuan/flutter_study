@@ -37,9 +37,10 @@ import 'page/stepper_page.dart';
 
 final routes = <String, WidgetBuilder>{
 //静态路由,无法传参
-  'route': (_) => RoutePage(),
+  '/': (_) => RoutePage(),
   'randomWords': (_) => RandomWords(),
-  'Home': (_) => MyHomePage(),
+  'Home': (context) =>
+      MyHomePage(tag: ModalRoute.of(context).settings.arguments),
   'Pavlova': (_) => PavlovaPage(),
   'Image': (_) => ImagePage(),
   'GridView': (_) => GridViewPage(),
@@ -72,3 +73,18 @@ final routes = <String, WidgetBuilder>{
   'StepperPage': (_) => StepperPage(),
   'TreePage': (_) => TreePage(),
 };
+
+///当通过Navigation.of(context).pushNamed跳转路由时，在routes查找不到时，会调用该方法
+Route onGenerateRoute(RouteSettings settings) {
+  return MaterialPageRoute(builder: (BuildContext context) {
+    String routeName = settings.name;
+    print('----route name : $routeName');
+
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('$routeName'),
+      ),
+      body: Text('找不到$routeName'),
+    );
+  });
+}

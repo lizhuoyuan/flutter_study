@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_app/locale/translations_delegate.dart';
 
 class PavlovaPage extends StatefulWidget {
   @override
@@ -109,7 +110,7 @@ class PavlovaState extends State<PavlovaPage> {
             children: <Widget>[
               ratIcon,
               Hero(
-                tag: 'hero',
+                tag: '${Translations.of(context).text('homePage')}',
                 child: Image.network(
                     'http://h.hiphotos.baidu.com/zhidao/wh%3D450%2C600/sign=0d023672312ac65c67506e77cec29e27/9f2f070828381f30dea167bbad014c086e06f06c.jpg',
                     height: 230.0,
