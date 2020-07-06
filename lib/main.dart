@@ -34,6 +34,18 @@ class MyApp extends StatelessWidget {
       initialRoute: '/',
       routes: routes,
       onGenerateRoute: onGenerateRoute,
+      navigatorObservers: [
+        Ob1(),
+      ],
     );
+  }
+}
+
+class Ob1 extends NavigatorObserver {
+  @override
+  void didPush(Route route, Route previousRoute) {
+    // TODO: implement didPush
+    super.didPush(route, previousRoute);
+    print('从${previousRoute.settings.name}到${route.settings.name}');
   }
 }

@@ -6,7 +6,6 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_app/bean/number_attribution.dart';
-//import 'package:flutter_app/bean/number_attribution.dart';
 
 class ChipPage extends StatefulWidget {
   @override

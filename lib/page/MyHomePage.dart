@@ -9,7 +9,6 @@ class MyHomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print(ModalRoute.of(context).settings.arguments);
 
     Widget titleSection = Container(
       padding: const EdgeInsets.all(32.0),
