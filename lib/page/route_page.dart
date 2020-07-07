@@ -8,8 +8,7 @@ class RoutePage extends StatelessWidget {
   void initData(BuildContext context) {
     listData.clear();
 
-    listData.add(ListItem(
-        Translations.of(context).text('homePage'), "Home", Icons.home));
+    listData.add(ListItem("Home Page", "Home", Icons.home));
     listData.add(ListItem("Pavlova示例", "Pavlova", Icons.panorama_vertical));
     listData.add(ListItem("randomWords示例", "randomWords", Icons.book));
     listData.add(ListItem("图片", "Image", Icons.image));

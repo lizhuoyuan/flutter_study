@@ -5,7 +5,10 @@ import 'package:flutter_app/rxdart/bloc_provider.dart';
 import 'package:flutter_app/theme/app_theme.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
-void main() => runApp(BlocProvider(child: const MyApp()));
+void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  runApp(BlocProvider(child: const MyApp()));
+}
 
 class MyApp extends StatelessWidget {
   const MyApp();
