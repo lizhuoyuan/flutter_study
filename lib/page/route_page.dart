@@ -45,6 +45,8 @@ class RoutePage extends StatelessWidget {
     listData.add(ListItem('步骤条Stepper ', 'StepperPage', Icons.short_text));
     listData.add(ListItem('类似于qq列表的组件树', 'TreePage', Icons.people));
     listData.add(ListItem('Sliver', 'Sliver', Icons.list));
+    listData.add(ListItem('CupertinoActionSheet', 'CupertinoActionSheetPage',
+        Icons.call_to_action));
   }
 
   @override
