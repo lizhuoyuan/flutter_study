@@ -22,7 +22,7 @@ class Translations {
   static Translations of(BuildContext context) =>
       Localizations.of<Translations>(context, Translations);
 
-  String text(String key) => _localizedValues[key] ?? '** $key not found';
+  String get(String key) => _localizedValues[key] ?? '** $key not found';
 
   static Future<Translations> load(Locale locale) async {
     Translations translations = new Translations(locale);

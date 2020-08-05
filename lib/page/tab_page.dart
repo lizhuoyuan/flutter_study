@@ -11,7 +11,7 @@ class TabPage extends StatefulWidget {
 }
 
 class _TabPageState extends State<TabPage> with SingleTickerProviderStateMixin {
-  List list = [1, 2, 3];
+  List list = ['我是第一个标题 长吗', '我是第2个标题 长吗'];
   TabController _tabController;
 
   @override
@@ -26,22 +26,38 @@ class _TabPageState extends State<TabPage> with SingleTickerProviderStateMixin {
     return Scaffold(
       appBar: AppBar(
         title: Text('Tab的使用'),
-        bottom: TabBar(
-            controller: _tabController,
-            tabs: list
-                .map(
-                  (item) => Tab(
-                    key: PageStorageKey('$item'),
-                    child: Text(
-                      '$item',
-                      style: TextStyle(color: Colors.black),
-                    ),
-                  ),
-                )
-                .toList()),
       ),
       body: Column(
         children: <Widget>[
+          TabBar(
+              indicatorSize: TabBarIndicatorSize.label,
+              indicatorColor: Colors.blue,
+              unselectedLabelColor: Colors.black,
+              labelColor: Colors.red,
+              //labelPadding: EdgeInsets.symmetric(horizontal: 20),
+              isScrollable: true,
+              indicator: UnderlineTabIndicator(
+                borderSide: BorderSide(
+                  width: 3,
+                  color: Colors.red,
+                ),
+                insets: EdgeInsets.symmetric(horizontal: 20),
+              ),
+              controller: _tabController,
+              tabs: list
+                  .map(
+                    (item) => Tab(
+                      iconMargin: EdgeInsets.all(1),
+                      key: PageStorageKey('$item'),
+                      child: Container(
+                        padding: EdgeInsets.symmetric(horizontal: 20),
+                        child: Text(
+                          '$item',
+                        ),
+                      ),
+                    ),
+                  )
+                  .toList()),
           Expanded(
             child: TabBarView(
                 controller: _tabController,

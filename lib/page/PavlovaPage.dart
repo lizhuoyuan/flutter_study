@@ -110,7 +110,7 @@ class PavlovaState extends State<PavlovaPage> {
             children: <Widget>[
               ratIcon,
               Hero(
-                tag: '${Translations.of(context).text('homePage')}',
+                tag: '${Translations.of(context).get('homePage')}',
                 child: Image.network(
                     'http://h.hiphotos.baidu.com/zhidao/wh%3D450%2C600/sign=0d023672312ac65c67506e77cec29e27/9f2f070828381f30dea167bbad014c086e06f06c.jpg',
                     height: 230.0,
