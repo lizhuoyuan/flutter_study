@@ -68,14 +68,19 @@ class TextFieldAndCheckPageState extends State<TextFieldAndCheckPage> {
           ),
           Padding(
             padding: const EdgeInsets.all(8.0),
-            child: TextField(
-              focusNode: secondTextFieldNode,
-              decoration: InputDecoration(
-                contentPadding: EdgeInsets.all(20.0),
-                border: OutlineInputBorder(),
+            child: Container(
+              color: Colors.grey,
+              constraints: BoxConstraints(maxHeight: 30),
+              child: TextField(
+                textAlignVertical: TextAlignVertical.bottom,
+                focusNode: secondTextFieldNode,
+                decoration: InputDecoration(
+                  hintText: '请输入',
+                  border: OutlineInputBorder(borderSide: BorderSide.none),
+                ),
+                textCapitalization: TextCapitalization.characters,
+
               ),
-              textCapitalization: TextCapitalization.characters,
-              maxLength: 5,
             ),
           ),
           _form()
