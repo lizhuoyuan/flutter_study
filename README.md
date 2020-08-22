@@ -1,8 +1,8 @@
 # flutter_app
 
-A new Flutter application.
+[相关内容的flutter专栏](https://zhuoyuan.blog.csdn.net/column/info/27607)  
 
-相关内容的flutter专栏:https://zhuoyuan.blog.csdn.net/column/info/27607
+[国际化教程](https://github.com/lizhuoyuan/flutter_intl_example)
 
 ![效果](./images/a.png)
 ![login](./images/login.png)
