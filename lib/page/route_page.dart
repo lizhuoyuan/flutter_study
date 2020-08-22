@@ -47,6 +47,7 @@ class RoutePage extends StatelessWidget {
     listData.add(ListItem('Sliver', 'Sliver', Icons.list));
     listData.add(ListItem('CupertinoActionSheet', 'CupertinoActionSheetPage',
         Icons.call_to_action));
+    listData.add(ListItem('按比例设置尺寸', 'FractionallySizedBoxPage', Icons.crop_din));
   }
 
   @override

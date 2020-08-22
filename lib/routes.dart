@@ -9,6 +9,7 @@ import 'package:flutter_app/page/MyHomePage.dart';
 import 'package:flutter_app/page/PavlovaPage.dart';
 import 'package:flutter_app/page/RandomWords.dart';
 import 'package:flutter_app/page/cupertino_action_sheet_page.dart';
+import 'package:flutter_app/page/fractionally_sized_box_page.dart';
 import 'package:flutter_app/page/route_page.dart';
 import 'package:flutter_app/page/ScreenUtilTest.dart';
 import 'package:flutter_app/page/StateWidgetPage.dart';
@@ -74,6 +75,7 @@ final routes = <String, WidgetBuilder>{
   'StepperPage': (_) => StepperPage(),
   'TreePage': (_) => TreePage(),
   'CupertinoActionSheetPage': (_) => CupertinoActionSheetPage(),
+  'FractionallySizedBoxPage': (_) => FractionallySizedBoxPage(),
 };
 
 ///当通过Navigation.of(context).pushNamed跳转路由时，在routes查找不到时，会调用该方法
