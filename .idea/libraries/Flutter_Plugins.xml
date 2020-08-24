@@ -1,5 +1,5 @@
 <component name="libraryTable">
-  <library name="Flutter Plugins" type="FlutterPluginsLibraryType">
+  <library name="Flutter Plugins">
     <CLASSES>
       <root url="file://$PROJECT_DIR$/../../flutter/.pub-cache/hosted/pub.flutter-io.cn/webview_flutter-0.3.22+1" />
       <root url="file://$PROJECT_DIR$/../../flutter/.pub-cache/hosted/pub.flutter-io.cn/video_player-0.10.11+2" />
