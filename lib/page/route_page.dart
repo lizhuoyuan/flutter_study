@@ -48,6 +48,7 @@ class RoutePage extends StatelessWidget {
     listData.add(ListItem('CupertinoActionSheet', 'CupertinoActionSheetPage',
         Icons.call_to_action));
     listData.add(ListItem('按比例设置尺寸', 'FractionallySizedBoxPage', Icons.crop_din));
+    listData.add(ListItem('屏幕/组件截图', 'RepaintBoundaryPage', Icons.screen_lock_landscape));
   }
 
   @override
