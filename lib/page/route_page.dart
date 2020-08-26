@@ -1,5 +1,6 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
-import 'package:flutter_app/locale/translations_delegate.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class RoutePage extends StatelessWidget {
@@ -47,8 +48,11 @@ class RoutePage extends StatelessWidget {
     listData.add(ListItem('Sliver', 'Sliver', Icons.list));
     listData.add(ListItem('CupertinoActionSheet', 'CupertinoActionSheetPage',
         Icons.call_to_action));
-    listData.add(ListItem('按比例设置尺寸', 'FractionallySizedBoxPage', Icons.crop_din));
-    listData.add(ListItem('屏幕/组件截图', 'RepaintBoundaryPage', Icons.screen_lock_landscape));
+    listData
+        .add(ListItem('按比例设置尺寸', 'FractionallySizedBoxPage', Icons.crop_din));
+    listData.add(ListItem(
+        '屏幕/组件截图', 'RepaintBoundaryPage', Icons.screen_lock_landscape));
+    listData.add(ListItem('扩展函数', 'ExtensionPage', Icons.extension));
   }
 
   @override
@@ -56,7 +60,7 @@ class RoutePage extends StatelessWidget {
     initData(context);
 
     //设置适配尺寸 (填入设计稿中设备的屏幕尺寸) 假如设计稿是按iPhone6的尺寸设计的(iPhone6 750*1334)
-    ScreenUtil.init(context,width: 750, height: 1334, allowFontScaling: false);
+    ScreenUtil.init(context, width: 750, height: 1334, allowFontScaling: false);
     return Scaffold(
       appBar: AppBar(
         title: Text('列表'),
