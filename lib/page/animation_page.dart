@@ -5,6 +5,7 @@
  */
 
 import 'package:flutter/material.dart';
+import 'package:flutter_app/widget/transform_animation_widget.dart';
 
 class AnimationPage extends StatefulWidget {
   @override
@@ -63,15 +64,21 @@ class AnimationState extends State<AnimationPage>
           child: Icon(Icons.play_arrow),
         ),
         body: Column(
+          mainAxisSize: MainAxisSize.max,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
-            GrowTransition(
+            TransformAnimationWidget(animation: animation),
+/*            GrowTransition(
               animation: animation,
               child: Image.asset(
                 'images/pic3.jpg',
                 fit: BoxFit.fill,
               ),
+            ),*/
+            SizedBox(
+              height: 50.0,
+              width: MediaQuery.of(context).size.width,
             ),
-            SizedBox(height: 50.0),
             AnimationImage(
               animation: animation,
             )
@@ -90,12 +97,26 @@ class AnimationState extends State<AnimationPage>
   }
 
   void _imageAnimationStatusListener(AnimationStatus status) {
-    if (status == AnimationStatus.completed) {
-      //动画结束之后执行反向动画
-      imageAnimationController.reverse();
-    } else if (status == AnimationStatus.dismissed) {
-      //动画恢复到初始状态后执行正向动画
-      imageAnimationController.forward();
+    switch (status) {
+      case AnimationStatus.dismissed:
+        // 动画反向运行结束
+        print('动画结束');
+        //动画恢复到初始状态后执行正向动画
+        imageAnimationController.forward();
+        break;
+      case AnimationStatus.forward:
+        print('动画正向运行');
+        break;
+      case AnimationStatus.reverse:
+        print('动画反向运行');
+        break;
+      case AnimationStatus.completed:
+        //动画完成
+        print('动画完成');
+        //动画结束之后执行反向动画
+        imageAnimationController.reverse();
+
+        break;
     }
   }
 }
