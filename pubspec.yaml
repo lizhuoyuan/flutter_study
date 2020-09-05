@@ -12,7 +12,7 @@ dependencies:
   dio: ^1.0.3
   json_annotation: ^0.2.3
   flutter_swiper: ^1.1.6
-  url_launcher: ^4.0.0
+  url_launcher: ^5.5.2
   flutter_screenutil: ^2.3.1
   scoped_model: ^0.3.0
   groovin_material_icons: ^1.1.5

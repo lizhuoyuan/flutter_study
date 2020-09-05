@@ -4,6 +4,7 @@
  *
  */
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class TabPage extends StatefulWidget {
   @override
@@ -11,105 +12,106 @@ class TabPage extends StatefulWidget {
 }
 
 class _TabPageState extends State<TabPage> with SingleTickerProviderStateMixin {
-  List list = ['我是第一个标题 长吗', '我是第2个标题 长吗'];
-  TabController _tabController;
+  TabController _mysTabController;
+  Color _color;
+  final List<Color> _colors = [
+    Colors.blue,
+    Colors.green,
+    Colors.pink,
+    Colors.yellow,
+    Colors.red,
+    Colors.purple,
+    Colors.grey,
+  ];
+  final List<Tab> myTabs = <Tab>[
+    Tab(text: '明教'),
+    Tab(text: '霸刀'),
+    Tab(text: '天策'),
+    Tab(text: '纯阳'),
+    Tab(text: '少林'),
+    Tab(text: '藏剑'),
+    Tab(text: '五毒'),
+  ];
+
+  final List<Tab> myTabBarViews = <Tab>[
+    Tab(text: '喵喵喵喵喵喵喵喵喵喵'),
+    Tab(text: '叨叨叨叨叨叨叨叨叨叨'),
+    Tab(text: '汪汪汪汪汪汪汪汪汪汪'),
+    Tab(text: '咩咩咩咩咩咩咩咩咩咩'),
+    Tab(text: '观自在菩萨,行深般若波罗蜜多时'),
+    Tab(text: '君子如风,藏剑西湖'),
+    Tab(text: '情之所依，心之所系。代君受命，保君平安。'),
+  ];
 
   @override
   void initState() {
-    // TODO: implement initState
+    _color ??= _colors[0]; //设置一个颜色的初始值
+    _mysTabController = TabController(vsync: this, length: myTabs.length);
     super.initState();
-    _tabController = TabController(length: list.length, vsync: this);
+    _mysTabController.animation.addListener(() {
+      setState(() {
+        _color = _colors[_mysTabController.index];
+
+        //当Tab向右滑动时
+        if (_mysTabController.offset > 0) {
+          final ColorTween myscolor = ColorTween(
+            begin: _colors[_mysTabController.index],
+            end: _colors[_mysTabController.index + 1],
+          );
+          _color = myscolor.lerp(_mysTabController.offset);
+        } else if (_mysTabController.offset < 0) {
+          //当Tab向左滑动时
+          final ColorTween myscolor = ColorTween(
+            begin: _colors[_mysTabController.index],
+            end: _colors[_mysTabController.index - 1],
+          );
+          _color = myscolor.lerp(-_mysTabController.offset);
+        }
+        print(_mysTabController.offset);
+      });
+    });
+  }
+
+  @override
+  void dispose() {
+    _mysTabController.dispose();
+    super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Tab的使用'),
-      ),
+      backgroundColor: _color,
       body: Column(
-        children: <Widget>[
-          TabBar(
-              indicatorSize: TabBarIndicatorSize.label,
-              indicatorColor: Colors.blue,
-              unselectedLabelColor: Colors.black,
-              labelColor: Colors.red,
-              //labelPadding: EdgeInsets.symmetric(horizontal: 20),
+        children: [
+          Container(
+            color: _color,
+            height: ScreenUtil.statusBarHeight,
+          ),
+          Container(
+            child: TabBar(
+              controller: _mysTabController,
+              labelColor: Colors.black,
+              tabs: <Widget>[...myTabs],
               isScrollable: true,
-              indicator: UnderlineTabIndicator(
-                borderSide: BorderSide(
-                  width: 3,
-                  color: Colors.red,
-                ),
-                insets: EdgeInsets.symmetric(horizontal: 20),
-              ),
-              controller: _tabController,
-              tabs: list
-                  .map(
-                    (item) => Tab(
-                      iconMargin: EdgeInsets.all(1),
-                      key: PageStorageKey('$item'),
-                      child: Container(
-                        padding: EdgeInsets.symmetric(horizontal: 20),
-                        child: Text(
-                          '$item',
-                        ),
-                      ),
-                    ),
-                  )
-                  .toList()),
+            ),
+          ),
           Expanded(
             child: TabBarView(
-                controller: _tabController,
-                children: list
-                    .map(
-                      (item) => ListView(
-                        children: <Widget>[
-                          Container(
-                            key: PageStorageKey('$item'),
-                            child: TabItemView(item: item),
-                          )
-                        ],
-                      ),
-                    )
+                controller: _mysTabController,
+                children: myTabBarViews
+                    .map((Tab tab) => Container(
+                          alignment: Alignment.center,
+                          // color: _color,
+                          child: Text(
+                            tab.text,
+                            style: TextStyle(color: Colors.white),
+                          ),
+                        ))
                     .toList()),
           ),
         ],
       ),
     );
   }
-}
-
-class TarItemState extends State<TabItemView> {
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: Container(
-        alignment: Alignment.center,
-        child: Text(
-          widget.item.toString(),
-          style: TextStyle(color: Colors.white),
-        ),
-        decoration: BoxDecoration(
-          color: widget.item == 2 ? Colors.blue : Colors.green,
-        ),
-      ),
-    );
-  }
-
-  @override
-  void dispose() {
-    super.dispose();
-    print('${widget.item} dispose');
-  }
-}
-
-class TabItemView extends StatefulWidget {
-  final item;
-
-  TabItemView({Key key, this.item}) : super(key: key);
-
-  @override
-  State<StatefulWidget> createState() => TarItemState();
 }

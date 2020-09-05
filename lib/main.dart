@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_app/locale/translations_delegate.dart';
 import 'package:flutter_app/routes.dart';
@@ -5,9 +7,50 @@ import 'package:flutter_app/rxdart/bloc_provider.dart';
 import 'package:flutter_app/theme/app_theme.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
-void main() {
+bool get isInDebugMode {
+  bool inDebugMode = false;
+  assert(inDebugMode = true);
+  return inDebugMode;
+}
+
+/// Reports [error] along with its [stackTrace] to Sentry.io.
+Future<Null> _reportError(dynamic error, dynamic stackTrace) async {
+  print('-Caught error: $error');
+
+  // Errors thrown in development mode are unlikely to be interesting. You can
+  // check if you are running in dev mode using an assertion and omit sending
+  // the report.
+  if (isInDebugMode) {
+    print(stackTrace);
+    print('In dev mode. Not sending report to Sentry.io.');
+    return;
+  }
+
+  print('Reporting to Sentry.io...');
+
+  print('Success! Event ID:  ');
+}
+
+Future<Null> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  runApp(BlocProvider(child: const MyApp()));
+
+  // This captures errors reported by the Flutter framework.
+  FlutterError.onError = (FlutterErrorDetails details) async {
+    if (isInDebugMode) {
+      // In development mode simply print to console.
+      FlutterError.dumpErrorToConsole(details);
+    } else {
+      // In production mode report to the application zone to report to
+      // Sentry.
+      Zone.current.handleUncaughtError(details.exception, details.stack);
+    }
+  };
+
+  runZonedGuarded<Future<Null>>(() async {
+    runApp(BlocProvider(child: const MyApp()));
+  }, (error, stackTrace) async {
+    await _reportError(error, stackTrace);
+  });
 }
 
 class MyApp extends StatelessWidget {
