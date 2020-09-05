@@ -1,4 +1,7 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_app/common/constant.dart';
+import 'package:flutter_app/utils/HttpUtil.dart';
 import 'package:mapbox_search/mapbox_search.dart';
 
 class MapSearchPage extends StatefulWidget {
@@ -12,7 +15,7 @@ class _MapSearchPageState extends State<MapSearchPage> {
 
   TextEditingController controller = TextEditingController();
 
-  List<MapBoxPlace> addressList = [];
+  List addressList = [];
 
   var placesSearch = PlacesSearch(
     apiKey: key,
@@ -25,6 +28,9 @@ class _MapSearchPageState extends State<MapSearchPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: FloatingActionButton(
+        onPressed: baiduSearch,
+      ),
       appBar: AppBar(
         title: Text(loadingText),
       ),
@@ -40,7 +46,9 @@ class _MapSearchPageState extends State<MapSearchPage> {
                 setState(() {
                   loadingText = '正在搜寻位置';
                 });
+                getGooglePlaces(text);
                 var places = await getPlaces(text);
+
                 setState(() {
                   loadingText = '搜索完成';
                   addressList = places;
@@ -63,6 +71,29 @@ class _MapSearchPageState extends State<MapSearchPage> {
 
   Future<List<MapBoxPlace>> getPlaces(String place) =>
       placesSearch.getPlaces(place);
+
+  Future<void> getGooglePlaces(String place) async {
+    String googleBaseUrl =
+        'https://maps.googleapis.com/maps/api/place/autocomplete/json';
+
+    Response response = await HttpUtil().get(googleBaseUrl,
+        data: {'key': PLACES_API_KEY, 'input': place, 'type': 'regions'});
+    print(response);
+  }
+
+  Future<void> baiduSearch() async {
+    String baiduBaseUrl = 'http://api.map.baidu.com/place_abroad/v1/search';
+
+    var response = await HttpUtil().get(baiduBaseUrl, data: {
+      'ak': 'o7BxXRdG5GEZ8qbA03GGvA1Xix7UcG0P',
+      'output': 'json',
+      'region': '全国',
+      'tab': '地级市',
+      'query': 'newyo',
+    });
+
+
+  }
 
   Widget _itemBuilder(BuildContext context, int index) {
     return ListTile(
