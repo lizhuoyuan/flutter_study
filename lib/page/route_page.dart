@@ -1,5 +1,3 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -53,6 +51,8 @@ class RoutePage extends StatelessWidget {
     listData.add(ListItem(
         '屏幕/组件截图', 'RepaintBoundaryPage', Icons.screen_lock_landscape));
     listData.add(ListItem('扩展函数', 'ExtensionPage', Icons.extension));
+
+    listData.add(ListItem('搜索地理位置', 'MapSearchPage', Icons.location_city));
   }
 
   @override
