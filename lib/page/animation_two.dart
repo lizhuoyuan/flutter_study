@@ -4,6 +4,8 @@
  *
  */
 
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 
 class AnimationTwo extends StatefulWidget {
@@ -14,29 +16,79 @@ class AnimationTwo extends StatefulWidget {
 class _AnimationTwoState extends State<AnimationTwo>
     with TickerProviderStateMixin {
   AnimationController _animationController;
+  AnimationController _rotateController;
+  Animation<num> animation;
+  bool isAnimating = false;
+  double alreadyChoose = 0;
 
   @override
   void initState() {
     super.initState();
     _animationController =
         AnimationController(vsync: this, duration: Duration(seconds: 2));
+
+    _rotateController =
+        AnimationController(vsync: this, duration: Duration(seconds: 12));
+
+    animation = Tween(begin: 0.0, end: 2 * pi).animate(_rotateController);
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
-        onPressed: _playAnimation,
-        child: Icon(Icons.play_arrow),
+        onPressed: () {
+          _whirlAnimation();
+          _playAnimation();
+        },
+        child: Icon(isAnimating ? Icons.stop : Icons.play_arrow),
       ),
       body: Container(
         decoration: BoxDecoration(
             border: Border.all(
           color: Colors.black,
         )),
-        child: StaggerAnimation(controller: _animationController),
+        child: ListView(
+          children: [
+            ConstellationAnimationWidget(
+              animation: animation,
+              alreadyChoose: alreadyChoose,
+            ),
+            Container(
+                alignment: Alignment.bottomCenter,
+                height: 300,
+                child: StaggerAnimation(controller: _animationController)),
+          ],
+        ),
+        // child: StaggerAnimation(controller: _animationController),
       ),
     );
+  }
+
+  Future<Null> _whirlAnimation() async {
+    try {
+      if (_rotateController.isAnimating) {
+        _rotateController?.stop(canceled: false);
+
+        _rotateController.stop(canceled: false);
+        setState(() {
+          alreadyChoose = 1;
+          isAnimating = false;
+        });
+        print('转到新位置');
+        return;
+      }
+      print('执行动画');
+      //先正向执行动画
+      setState(() {
+        isAnimating = true;
+        alreadyChoose = 0;
+      });
+      await _rotateController?.repeat();
+    } on TickerCanceled {
+      // the animation got canceled, probably because we were disposed
+      print('动画被取消了');
+    }
   }
 
   Future<Null> _playAnimation() async {
@@ -49,6 +101,30 @@ class _AnimationTwoState extends State<AnimationTwo>
       // the animation got canceled, probably because we were disposed
       print(' cancel');
     }
+  }
+
+  @override
+  void dispose() {
+    _animationController?.dispose();
+    _rotateController?.dispose();
+    super.dispose();
+  }
+}
+
+class ConstellationAnimationWidget extends AnimatedWidget {
+  final double alreadyChoose;
+
+  ConstellationAnimationWidget(
+      {Key key, Animation animation, this.alreadyChoose})
+      : super(key: key, listenable: animation);
+
+  @override
+  Widget build(BuildContext context) {
+    final Animation<double> animation = listenable;
+    return Transform.rotate(
+      angle: alreadyChoose == 0 ? animation.value : alreadyChoose,
+      child: Image.asset('images/timg.jpg', width: 300, height: 300),
+    );
   }
 }
 

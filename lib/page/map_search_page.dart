@@ -87,7 +87,7 @@ class _MapSearchPageState extends State<MapSearchPage> {
     var response = await HttpUtil().get(baiduBaseUrl, data: {
       'ak': 'o7BxXRdG5GEZ8qbA03GGvA1Xix7UcG0P',
       'output': 'json',
-      'region': 'USA',
+      'region': '全国',
       'query': 'newyor',
     });
   }
