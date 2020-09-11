@@ -6,6 +6,7 @@
 
 import 'dart:math';
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class AnimationTwo extends StatefulWidget {
@@ -48,16 +49,35 @@ class _AnimationTwoState extends State<AnimationTwo>
             border: Border.all(
           color: Colors.black,
         )),
-        child: ListView(
+        child: Stack(
           children: [
-            ConstellationAnimationWidget(
-              animation: animation,
-              alreadyChoose: alreadyChoose,
-            ),
             Container(
-                alignment: Alignment.bottomCenter,
-                height: 300,
-                child: StaggerAnimation(controller: _animationController)),
+              height: double.infinity,
+            ),
+            //Container(height: 300,color: Colors.green,),
+            Positioned(
+              top: 100,
+              left: 0,
+              right: 0,
+              child: Column(
+                children: [
+                  SizedBox(
+                    height: 50,
+                  ),
+                  ConstellationAnimationWidget(
+                    animation: animation,
+                    alreadyChoose: alreadyChoose,
+                  ),
+                ],
+              ),
+            ),
+            Positioned(
+              bottom: 0,
+              child: Container(
+                  alignment: Alignment.bottomCenter,
+                  height: 300,
+                  child: StaggerAnimation(controller: _animationController)),
+            ),
           ],
         ),
         // child: StaggerAnimation(controller: _animationController),
@@ -121,9 +141,20 @@ class ConstellationAnimationWidget extends AnimatedWidget {
   @override
   Widget build(BuildContext context) {
     final Animation<double> animation = listenable;
-    return Transform.rotate(
-      angle: alreadyChoose == 0 ? animation.value : alreadyChoose,
-      child: Image.asset('images/timg.jpg', width: 300, height: 300),
+
+    return Container(
+      color: Colors.amber,
+      width: 100,
+      height: 100,
+      child: OverflowBox(
+        maxWidth: 200,
+        maxHeight: 200,
+
+        child: Transform.rotate(
+          angle: alreadyChoose == 0 ? animation.value : alreadyChoose,
+          child: Image.asset('images/timg.jpg'),
+        ),
+      ),
     );
   }
 }

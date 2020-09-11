@@ -9,6 +9,7 @@ import 'package:flutter_app/page/MyHomePage.dart';
 import 'package:flutter_app/page/PavlovaPage.dart';
 import 'package:flutter_app/page/RandomWords.dart';
 import 'package:flutter_app/page/cupertino_action_sheet_page.dart';
+import 'package:flutter_app/page/draggable_scrollable_sheet_page.dart';
 import 'package:flutter_app/page/fractionally_sized_box_page.dart';
 import 'package:flutter_app/page/map_search_page.dart';
 import 'package:flutter_app/page/repaint_boundary_page.dart';
@@ -82,6 +83,7 @@ final routes = <String, WidgetBuilder>{
   'RepaintBoundaryPage': (_) => RepaintBoundaryPage(),
   'ExtensionPage': (_) => ExtensionPage(),
   'MapSearchPage': (_) => MapSearchPage(),
+  'DraggableScrollableSheet': (_) => DraggableScrollableSheetPage(),
 };
 
 ///当通过Navigation.of(context).pushNamed跳转路由时，在routes查找不到时，会调用该方法
