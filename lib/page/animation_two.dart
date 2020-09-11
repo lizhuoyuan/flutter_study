@@ -144,12 +144,12 @@ class ConstellationAnimationWidget extends AnimatedWidget {
 
     return Container(
       color: Colors.amber,
-      width: 100,
+      width: 400,
       height: 100,
       child: OverflowBox(
-        maxWidth: 200,
-        maxHeight: 200,
-
+        alignment: Alignment.topCenter,
+        maxWidth: 500,
+        maxHeight: 500,
         child: Transform.rotate(
           angle: alreadyChoose == 0 ? animation.value : alreadyChoose,
           child: Image.asset('images/timg.jpg'),
