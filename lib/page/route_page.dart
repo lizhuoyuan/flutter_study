@@ -20,12 +20,10 @@ class RoutePage extends StatelessWidget {
     listData.add(ListItem("动画", "Animation", Icons.landscape));
     listData.add(ListItem('动画2', 'AnimationTwo', Icons.android));
     listData.add(ListItem("屏幕适配示例", "ScreenUtilPage", Icons.landscape));
-    listData.add(
-        ListItem("futureBuilder", "FutureBuilderPage", Icons.hourglass_full));
+    listData.add(ListItem("futureBuilder", "FutureBuilderPage", Icons.hourglass_full));
     listData.add(ListItem("主题", "ThemePage", Icons.landscape));
     listData.add(ListItem("Chip", "ChipPage", Icons.landscape));
-    listData
-        .add(ListItem("ExpansionTile", "ExpansionTilePage", Icons.landscape));
+    listData.add(ListItem("ExpansionTile", "ExpansionTilePage", Icons.landscape));
     listData.add(ListItem("Transform 3D效果", "TransformPage", Icons.landscape));
     listData.add(ListItem("登录页", "LoginPage", Icons.landscape));
     listData.add(ListItem("WebView", "WebViewPage", Icons.web));
@@ -36,24 +34,21 @@ class RoutePage extends StatelessWidget {
     listData.add(ListItem('分享', 'SharePage', Icons.share));
     listData.add(ListItem('搜索', 'SearchPage', Icons.search));
     listData.add(ListItem('mp4视频播放', 'VideoPlayerPage', Icons.video_library));
-    listData.add(
-        ListItem('Youtube视频播放', 'FlutterYoutubePage', Icons.video_library));
-    listData
-        .add(ListItem('FlutterNativeWeb插件的使用', 'FlutterNativeWeb', Icons.web));
+    listData.add(ListItem('Youtube视频播放', 'FlutterYoutubePage', Icons.video_library));
+    listData.add(ListItem('FlutterNativeWeb插件的使用', 'FlutterNativeWeb', Icons.web));
     listData.add(ListItem('sqflite的使用', 'SqfLitePage', Icons.crop_square));
     listData.add(ListItem('步骤条Stepper ', 'StepperPage', Icons.short_text));
     listData.add(ListItem('类似于qq列表的组件树', 'TreePage', Icons.people));
     listData.add(ListItem('Sliver', 'Sliver', Icons.list));
-    listData.add(ListItem('CupertinoActionSheet', 'CupertinoActionSheetPage',
-        Icons.call_to_action));
     listData
-        .add(ListItem('按比例设置尺寸', 'FractionallySizedBoxPage', Icons.crop_din));
-    listData.add(ListItem(
-        '屏幕/组件截图', 'RepaintBoundaryPage', Icons.screen_lock_landscape));
+        .add(ListItem('CupertinoActionSheet', 'CupertinoActionSheetPage', Icons.call_to_action));
+    listData.add(ListItem('按比例设置尺寸', 'FractionallySizedBoxPage', Icons.crop_din));
+    listData.add(ListItem('屏幕/组件截图', 'RepaintBoundaryPage', Icons.screen_lock_landscape));
     listData.add(ListItem('扩展函数', 'ExtensionPage', Icons.extension));
     listData.add(ListItem('搜索地理位置', 'MapSearchPage', Icons.location_city));
-    listData.add(ListItem('DraggableScrollableSheetPage',
-        'DraggableScrollableSheet', Icons.location_city));
+    listData.add(
+        ListItem('DraggableScrollableSheetPage', 'DraggableScrollableSheet', Icons.location_city));
+    listData.add(ListItem('弹窗', 'ModalPage', Icons.airplanemode_active));
   }
 
   @override
@@ -97,8 +92,7 @@ class ListItemWidget extends StatelessWidget {
         leading: Icon(listItem.iconData),
         trailing: Icon(Icons.arrow_forward),
         onTap: () {
-          Navigator.pushNamed(context, listItem.routeName,
-              arguments: listItem.title);
+          Navigator.pushNamed(context, listItem.routeName, arguments: listItem.title);
         });
   }
 }

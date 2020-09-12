@@ -6,7 +6,6 @@
 
 import 'dart:math';
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class AnimationTwo extends StatefulWidget {
@@ -14,8 +13,7 @@ class AnimationTwo extends StatefulWidget {
   _AnimationTwoState createState() => _AnimationTwoState();
 }
 
-class _AnimationTwoState extends State<AnimationTwo>
-    with TickerProviderStateMixin {
+class _AnimationTwoState extends State<AnimationTwo> with TickerProviderStateMixin {
   AnimationController _animationController;
   AnimationController _rotateController;
   Animation<num> animation;
@@ -25,11 +23,9 @@ class _AnimationTwoState extends State<AnimationTwo>
   @override
   void initState() {
     super.initState();
-    _animationController =
-        AnimationController(vsync: this, duration: Duration(seconds: 2));
+    _animationController = AnimationController(vsync: this, duration: Duration(seconds: 2));
 
-    _rotateController =
-        AnimationController(vsync: this, duration: Duration(seconds: 12));
+    _rotateController = AnimationController(vsync: this, duration: Duration(seconds: 12));
 
     animation = Tween(begin: 0.0, end: 2 * pi).animate(_rotateController);
   }
@@ -134,8 +130,7 @@ class _AnimationTwoState extends State<AnimationTwo>
 class ConstellationAnimationWidget extends AnimatedWidget {
   final double alreadyChoose;
 
-  ConstellationAnimationWidget(
-      {Key key, Animation animation, this.alreadyChoose})
+  ConstellationAnimationWidget({Key key, Animation animation, this.alreadyChoose})
       : super(key: key, listenable: animation);
 
   @override
@@ -167,19 +162,16 @@ class StaggerAnimation extends StatelessWidget {
 
   StaggerAnimation({this.controller, Key key}) : super(key: key) {
     //高度动画
-    height = Tween(begin: 0.0, end: 300.0).animate(CurvedAnimation(
-        parent: controller, curve: Interval(0.0, 0.6, curve: Curves.ease)));
+    height = Tween(begin: 0.0, end: 300.0).animate(
+        CurvedAnimation(parent: controller, curve: Interval(0.0, 0.6, curve: Curves.ease)));
 
     //颜色
     color = ColorTween(begin: Colors.red, end: Colors.green).animate(
-        CurvedAnimation(
-            parent: controller, curve: Interval(0.0, 0.6, curve: Curves.ease)));
+        CurvedAnimation(parent: controller, curve: Interval(0.0, 0.6, curve: Curves.ease)));
 
     //左侧间距
-    padding = Tween(
-            begin: EdgeInsets.only(left: 0.0), end: EdgeInsets.only(left: 300))
-        .animate(CurvedAnimation(
-            parent: controller, curve: Interval(0.6, 1.0, curve: Curves.ease)));
+    padding = Tween(begin: EdgeInsets.only(left: 0.0), end: EdgeInsets.only(left: 300)).animate(
+        CurvedAnimation(parent: controller, curve: Interval(0.6, 1.0, curve: Curves.ease)));
   }
 
   @override
