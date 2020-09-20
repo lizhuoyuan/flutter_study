@@ -84,7 +84,7 @@ final routes = <String, WidgetBuilder>{
   'MapSearchPage': (_) => MapSearchPage(),
   'DraggableScrollableSheet': (_) => DraggableScrollableSheetPage(),
   'ModalPage': (_) => ModalPage(),
-  '日期选择器,多级联动': (_) => PickerPage(),
+  'PickerPage': (_) => PickerPage(),
 };
 
 ///当通过Navigation.of(context).pushNamed跳转路由时，在routes查找不到时，会调用该方法
