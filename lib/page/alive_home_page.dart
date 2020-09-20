@@ -6,9 +6,6 @@
 
 import 'package:flutter/material.dart';
 
-import 'package:flutter/material.dart';
-
-
 class AliveHomePage extends StatefulWidget {
   AliveHomePage({Key key, this.title}) : super(key: key);
   final String title;
@@ -17,14 +14,14 @@ class AliveHomePage extends StatefulWidget {
   _MyHomePageState createState() => new _MyHomePageState();
 }
 
-class _MyHomePageState extends State<AliveHomePage> with AutomaticKeepAliveClientMixin{
+class _MyHomePageState extends State<AliveHomePage> with AutomaticKeepAliveClientMixin {
   int _counter = 0;
 
   // TODO: implement wantKeepAlive
   @override
   bool get wantKeepAlive => true;
 
-  void _incrementCounter() {
+  void _incrementCounter() async {
     setState(() {
       _counter++;
     });
@@ -51,10 +48,8 @@ class _MyHomePageState extends State<AliveHomePage> with AutomaticKeepAliveClien
       floatingActionButton: new FloatingActionButton(
         onPressed: _incrementCounter,
         tooltip: 'Increment',
-        child: new Icon(Icons.add),
+        child: Icon(Icons.add),
       ),
     );
   }
-
-
 }

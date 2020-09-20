@@ -49,6 +49,8 @@ class RoutePage extends StatelessWidget {
     listData.add(
         ListItem('DraggableScrollableSheetPage', 'DraggableScrollableSheet', Icons.location_city));
     listData.add(ListItem('弹窗', 'ModalPage', Icons.airplanemode_active));
+
+    listData.add(ListItem('Picker', 'PickerPage', Icons.airplanemode_active));
   }
 
   @override

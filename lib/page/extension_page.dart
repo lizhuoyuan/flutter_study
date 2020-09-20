@@ -12,15 +12,13 @@ class _ExtensionPagState extends State<ExtensionPage> {
       appBar: AppBar(
         title: Text('扩展函数'),
       ),
-      body: Column(
-        children: <Widget>[
-          InkWell(
-            onTap: _onTap,
-            child: Text('按钮'),
-          ).click(() {
-            print('extension');
-          }),
-        ],
+      body: Center(
+        child: InkWell(
+          onTap: _onTap,
+          child: Text('按钮'),
+        ).click(() {
+          print('extension');
+        }),
       ),
     );
   }
@@ -33,6 +31,7 @@ class _ExtensionPagState extends State<ExtensionPage> {
 extension Ink on InkWell {
   InkWell click(Function f) {
     return InkWell(
+      child: child,
       onTap: () {
         f();
       },

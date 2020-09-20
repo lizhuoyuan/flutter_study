@@ -10,6 +10,7 @@ import 'package:flutter_app/page/PavlovaPage.dart';
 import 'package:flutter_app/page/RandomWords.dart';
 import 'package:flutter_app/page/cupertino_action_sheet_page.dart';
 import 'package:flutter_app/page/draggable_scrollable_sheet_page.dart';
+import 'package:flutter_app/page/flutter_picker_page.dart';
 import 'package:flutter_app/page/fractionally_sized_box_page.dart';
 import 'package:flutter_app/page/map_search_page.dart';
 import 'package:flutter_app/page/modal_page.dart';
@@ -38,7 +39,6 @@ import 'package:flutter_app/page/tab_page.dart';
 import 'package:flutter_app/page/textField.dart';
 import 'package:flutter_app/page/tree_page.dart';
 import 'package:flutter_app/page/video_player.dart';
-import 'package:flutter_app/page/webview_page.dart';
 
 import 'page/stepper_page.dart';
 
@@ -63,7 +63,6 @@ final routes = <String, WidgetBuilder>{
   'ExpansionTilePage': (_) => ExpansionTilePage(),
   'TransformPage': (_) => Transform3D(),
   'LoginPage': (_) => LoginPage(),
-  'WebViewPage': (_) => WebViewPage(),
   'CustomViewPage': (_) => CustomViewPage(),
   'TabPae': (_) => TabPage(),
   'backdropPage': (_) => BackdropPage(),
@@ -85,6 +84,7 @@ final routes = <String, WidgetBuilder>{
   'MapSearchPage': (_) => MapSearchPage(),
   'DraggableScrollableSheet': (_) => DraggableScrollableSheetPage(),
   'ModalPage': (_) => ModalPage(),
+  '日期选择器,多级联动': (_) => PickerPage(),
 };
 
 ///当通过Navigation.of(context).pushNamed跳转路由时，在routes查找不到时，会调用该方法
