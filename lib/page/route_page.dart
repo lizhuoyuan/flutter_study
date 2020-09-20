@@ -44,7 +44,7 @@ class RoutePage extends StatelessWidget {
         .add(ListItem('CupertinoActionSheet', 'CupertinoActionSheetPage', Icons.call_to_action));
     listData.add(ListItem('按比例设置尺寸', 'FractionallySizedBoxPage', Icons.crop_din));
     listData.add(ListItem('屏幕/组件截图', 'RepaintBoundaryPage', Icons.screen_lock_landscape));
-    listData.add(ListItem('扩展函数', 'ExtensionPage', Icons.extension));
+    listData.add(ListItem('高斯模糊&扩展函数', 'ExtensionPage', Icons.extension));
     listData.add(ListItem('搜索地理位置', 'MapSearchPage', Icons.location_city));
     listData.add(
         ListItem('DraggableScrollableSheetPage', 'DraggableScrollableSheet', Icons.location_city));
