@@ -38,7 +38,6 @@ class _PickerPageState extends State<PickerPage> {
               onPressed: showPickerDateTimeRoundBg,
             ),
             SizedBox(height: listSpec),
- 
           ],
         ),
       ),
@@ -64,11 +63,9 @@ class _PickerPageState extends State<PickerPage> {
         headerDecoration:
             BoxDecoration(border: Border(bottom: BorderSide(color: Colors.black12, width: 0.5))),
         adapter: DateTimePickerAdapter(
-            type: PickerDateTimeType.kYMDHM,
-            isNumberMonth: false,
-            yearSuffix: "年",
-            monthSuffix: "月",
-            daySuffix: "日"),
+          type: PickerDateTimeType.kYMDHM,
+          isNumberMonth: false,
+        ),
         title: Text("选择时间"),
         onConfirm: (Picker picker, List value) {
           print('confirm:${picker.adapter.text}');
@@ -88,13 +85,10 @@ class _PickerPageState extends State<PickerPage> {
         backgroundColor: Colors.transparent,
         builder: (context) {
           return Material(
-              color: Colors.white,
-              borderRadius:
-                  BorderRadius.only(topLeft: Radius.circular(10), topRight: Radius.circular(10)),
-              child: Container(
-                padding: const EdgeInsets.only(top: 4),
-                child: timePicker(isModal: true),
-              ));
+            color: Colors.white,
+            borderRadius: BorderRadius.vertical(top: Radius.circular(10)),
+            child: timePicker(isModal: true),
+          );
         });
   }
 }
