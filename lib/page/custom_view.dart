@@ -13,21 +13,20 @@ class CustomViewPage extends StatefulWidget {
   State<StatefulWidget> createState() => CustomViewPageState();
 }
 
-class CustomViewPageState extends State<CustomViewPage>
-    with SingleTickerProviderStateMixin {
+class CustomViewPageState extends State<CustomViewPage> with SingleTickerProviderStateMixin {
   Animation<double> _doubleAnimation;
   AnimationController _controller;
   CurvedAnimation curvedAnimation;
+  Animation<double> _progressAnimation;
 
   @override
   void initState() {
     super.initState();
-    _controller =
-        AnimationController(vsync: this, duration: Duration(seconds: 2));
-    curvedAnimation =
-        CurvedAnimation(parent: _controller, curve: Curves.decelerate);
+    _controller = AnimationController(vsync: this, duration: Duration(seconds: 2));
+    curvedAnimation = CurvedAnimation(parent: _controller, curve: Curves.decelerate);
     _doubleAnimation = Tween(begin: 0.0, end: 360.0).animate(_controller);
 
+    _progressAnimation = Tween(begin: 0.0, end: 0.6).animate(_controller);
     _controller.addListener(() {
       this.setState(() {});
     });
@@ -40,27 +39,56 @@ class CustomViewPageState extends State<CustomViewPage>
       appBar: AppBar(
         title: Text('自定义View'),
       ),
-      body: Container(
-        width: 100.0,
-        height: 100.0,
-        margin: EdgeInsets.all(8.0),
-        child: CustomPaint(
-            /* child: Align(
-                alignment: Alignment.topLeft,
-                child: Transform.rotate(
-                  angle: -3.1415926 / 4,
-                  child: Text('Hot'),
-                  origin: Offset(100.0 / 2, 0.0),
-                )),*/
-            child: Center(
-                child: Text((_doubleAnimation.value / 3.6).round().toString())),
-            painter: CircleProgressBarPainter(_doubleAnimation.value)
-            /*LabelViewPainter(
-            labelColor: Colors.redAccent,
-            labelAlignment: LabelAlignment.leftTop,
-            useAngle: true,
-          ),*/
+      body: Column(
+        children: [
+          Container(
+            width: 100.0,
+            height: 100.0,
+            margin: EdgeInsets.all(8.0),
+            child: CustomPaint(
+                child: Center(child: Text((_doubleAnimation.value / 3.6).round().toString())),
+                painter: CircleProgressBarPainter(_doubleAnimation.value)),
+          ),
+          Container(
+            width: 100,
+            height: 100,
+            child: CustomPaint(
+              painter: LabelViewPainter(
+                labelColor: Colors.redAccent,
+                labelAlignment: LabelAlignment.leftTop,
+                useAngle: true,
+              ),
+              child: Align(
+                  alignment: Alignment.topLeft,
+                  child: Transform.rotate(
+                    angle: -3.1415926 / 4,
+                    child: Text(
+                      'Hot',
+                      style: TextStyle(color: Colors.white),
+                    ),
+                    origin: Offset(100.0 / 2, 0.0),
+                  )),
             ),
+          ),
+          Container(
+            width: 100.0,
+            height: 100.0,
+            margin: EdgeInsets.all(8.0),
+            child: CircularProgressIndicator(
+              value: _progressAnimation.value,
+            ),
+          ),
+          Container(
+            width: 100,
+            height: 10,
+            margin: EdgeInsets.all(8.0),
+            child: LinearProgressIndicator(
+              value: _progressAnimation.value,
+              backgroundColor: Colors.grey,
+              valueColor: AlwaysStoppedAnimation<Color>(Colors.blue),
+            ),
+          ),
+        ],
       ),
     ));
   }
@@ -77,8 +105,8 @@ class CustomViewPageState extends State<CustomViewPage>
 
   @override
   void dispose() {
-    super.dispose();
     _controller.dispose();
+    super.dispose();
   }
 }
 
@@ -282,7 +310,7 @@ class CircleProgressBarPainter extends CustomPainter {
   var jindu;
 
   CircleProgressBarPainter(this.jindu) {
-    _paintBackground = Paint()  
+    _paintBackground = Paint()
       ..color = Colors.grey
       ..strokeCap = StrokeCap.round
       ..style = PaintingStyle.stroke
@@ -295,10 +323,10 @@ class CircleProgressBarPainter extends CustomPainter {
       ..strokeWidth = 10.0
       ..isAntiAlias = true;
   }
+
   @override
   void paint(Canvas canvas, Size size) {
-    canvas.drawCircle(Offset(size.width / 2, size.height / 2), size.width / 2,
-        _paintBackground);
+    canvas.drawCircle(Offset(size.width / 2, size.height / 2), size.width / 2, _paintBackground);
     Rect rect = Rect.fromCircle(
       center: Offset(size.width / 2, size.height / 2),
       radius: size.width / 2,
