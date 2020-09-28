@@ -4,9 +4,10 @@
  *  自定义view
  */
 
-import 'dart:ui';
+import 'dart:ui' as ui;
 
 import 'package:flutter/material.dart';
+import 'package:flutter_app/utils/image_util.dart';
 
 class CustomViewPage extends StatefulWidget {
   @override
@@ -18,6 +19,7 @@ class CustomViewPageState extends State<CustomViewPage> with SingleTickerProvide
   AnimationController _controller;
   CurvedAnimation curvedAnimation;
   Animation<double> _progressAnimation;
+  ui.Image _img;
 
   @override
   void initState() {
@@ -31,6 +33,13 @@ class CustomViewPageState extends State<CustomViewPage> with SingleTickerProvide
       this.setState(() {});
     });
     onAnimationStart();
+    getImage();
+  }
+
+  void getImage() async {
+    _img = await ImageUtil.load('images/jay.jpg', width: 80, height: 80);
+    //_img = await ImageUtil.loadImageByProvider(AssetImage('images/pic1.jpg'));
+    setState(() {});
   }
 
   @override
@@ -39,56 +48,72 @@ class CustomViewPageState extends State<CustomViewPage> with SingleTickerProvide
       appBar: AppBar(
         title: Text('自定义View'),
       ),
-      body: Column(
-        children: [
-          Container(
-            width: 100.0,
-            height: 100.0,
-            margin: EdgeInsets.all(8.0),
-            child: CustomPaint(
-                child: Center(child: Text((_doubleAnimation.value / 3.6).round().toString())),
-                painter: CircleProgressBarPainter(_doubleAnimation.value)),
-          ),
-          Container(
-            width: 100,
-            height: 100,
-            child: CustomPaint(
-              painter: LabelViewPainter(
-                labelColor: Colors.redAccent,
-                labelAlignment: LabelAlignment.leftTop,
-                useAngle: true,
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            Container(
+              width: 100.0,
+              height: 100.0,
+              margin: EdgeInsets.all(8.0),
+              child: CustomPaint(
+                  child: Center(child: Text((_doubleAnimation.value / 3.6).round().toString())),
+                  painter: CircleProgressBarPainter(_doubleAnimation.value)),
+            ),
+            Container(
+              width: 100,
+              height: 100,
+              child: CustomPaint(
+                painter: LabelViewPainter(
+                  labelColor: Colors.redAccent,
+                  labelAlignment: LabelAlignment.leftTop,
+                  useAngle: true,
+                ),
+                child: Align(
+                    alignment: Alignment.topLeft,
+                    child: Transform.rotate(
+                      angle: -3.1415926 / 4,
+                      child: Text(
+                        'Hot',
+                        style: TextStyle(color: Colors.white),
+                      ),
+                      origin: Offset(100.0 / 2, 0.0),
+                    )),
               ),
-              child: Align(
-                  alignment: Alignment.topLeft,
-                  child: Transform.rotate(
-                    angle: -3.1415926 / 4,
-                    child: Text(
-                      'Hot',
-                      style: TextStyle(color: Colors.white),
-                    ),
-                    origin: Offset(100.0 / 2, 0.0),
-                  )),
             ),
-          ),
-          Container(
-            width: 100.0,
-            height: 100.0,
-            margin: EdgeInsets.all(8.0),
-            child: CircularProgressIndicator(
-              value: _progressAnimation.value,
+            Container(
+              width: 100.0,
+              height: 100.0,
+              margin: EdgeInsets.all(8.0),
+              child: CircularProgressIndicator(
+                value: _progressAnimation.value,
+              ),
             ),
-          ),
-          Container(
-            width: 100,
-            height: 10,
-            margin: EdgeInsets.all(8.0),
-            child: LinearProgressIndicator(
-              value: _progressAnimation.value,
-              backgroundColor: Colors.grey,
-              valueColor: AlwaysStoppedAnimation<Color>(Colors.blue),
+            Container(
+              width: 100,
+              height: 10,
+              margin: EdgeInsets.all(8.0),
+              child: LinearProgressIndicator(
+                value: _progressAnimation.value,
+                backgroundColor: Colors.grey,
+                valueColor: AlwaysStoppedAnimation<Color>(Colors.blue),
+              ),
             ),
-          ),
-        ],
+            SizedBox(
+              height: 20,
+            ),
+            Container(
+              height: 80,
+              width: 80,
+              child: CustomPaint(
+                painter: ImagePainter(_img),
+                child: Text(
+                  '这是绘制的图片',
+                  style: TextStyle(color: Colors.white),
+                ),
+              ),
+            )
+          ],
+        ),
       ),
     ));
   }
@@ -307,9 +332,9 @@ class CircleProgressBarPainter extends CustomPainter {
   Paint _paintBackground;
   Paint _paintFore;
   final double pi = 3.1415926;
-  var jindu;
+  var progress;
 
-  CircleProgressBarPainter(this.jindu) {
+  CircleProgressBarPainter(this.progress) {
     _paintBackground = Paint()
       ..color = Colors.grey
       ..strokeCap = StrokeCap.round
@@ -331,11 +356,28 @@ class CircleProgressBarPainter extends CustomPainter {
       center: Offset(size.width / 2, size.height / 2),
       radius: size.width / 2,
     );
-    canvas.drawArc(rect, 0.0, jindu * 3.14 / 180, false, _paintFore);
+    canvas.drawArc(rect, 0.0, progress * 3.14 / 180, false, _paintFore);
   }
 
   @override
   bool shouldRepaint(CustomPainter oldDelegate) {
     return false;
   }
+}
+
+class ImagePainter extends CustomPainter {
+  Paint _paint;
+  ui.Image _img;
+
+  ImagePainter(this._img) {
+    _paint = Paint();
+  }
+
+  @override
+  void paint(Canvas canvas, Size size) async {
+    canvas.drawImage(_img, Offset(0, 0), _paint);
+  }
+
+  @override
+  bool shouldRepaint(CustomPainter oldDelegate) => true;
 }

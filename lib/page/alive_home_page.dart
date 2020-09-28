@@ -17,7 +17,6 @@ class AliveHomePage extends StatefulWidget {
 class _MyHomePageState extends State<AliveHomePage> with AutomaticKeepAliveClientMixin {
   int _counter = 0;
 
-  // TODO: implement wantKeepAlive
   @override
   bool get wantKeepAlive => true;
 
