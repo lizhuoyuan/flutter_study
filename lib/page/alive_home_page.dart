@@ -39,7 +39,7 @@ class _MyHomePageState extends State<AliveHomePage> with AutomaticKeepAliveClien
             ),
             new Text(
               '$_counter',
-              style: Theme.of(context).textTheme.display1,
+              style: Theme.of(context).textTheme.button,
             ),
           ],
         ),

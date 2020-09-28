@@ -7,28 +7,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 class ImageUtil {
-  //通过[Uint8List]获取图片
-  static Future<ui.Image> loadImageByUint8List(
-    Uint8List list, {
-    int width,
-    int height,
-  }) async {
-    ui.Codec codec = await ui.instantiateImageCodec(
-      list,
-      targetWidth: width,
-      targetHeight: height,
-    );
-    ui.FrameInfo frame = await codec.getNextFrame();
-    return frame.image;
-  }
-
-  //通过 文件读取 Image
+  ///通过 文件读取 Image
   static Future<ui.Image> loadImageByFile(String path) async {
     var list = await File(path).readAsBytes();
     return loadImageByUint8List(list);
   }
 
-  //通过ImageProvider读取Image
+  ///通过ImageProvider读取Image
   static Future<ui.Image> loadImageByProvider(
     ImageProvider provider, {
     ImageConfiguration config = ImageConfiguration.empty,
@@ -58,5 +43,20 @@ class ImageUtil {
       width: width,
       height: height,
     );
+  }
+
+  ///通过[Uint8List]获取图片
+  static Future<ui.Image> loadImageByUint8List(
+    Uint8List list, {
+    int width,
+    int height,
+  }) async {
+    ui.Codec codec = await ui.instantiateImageCodec(
+      list,
+      targetWidth: width,
+      targetHeight: height,
+    );
+    ui.FrameInfo frame = await codec.getNextFrame();
+    return frame.image;
   }
 }
