@@ -5,6 +5,7 @@
  */
 
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class AliveHomePage extends StatefulWidget {
   AliveHomePage({Key key, this.title}) : super(key: key);
@@ -16,14 +17,20 @@ class AliveHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<AliveHomePage> with AutomaticKeepAliveClientMixin {
   int _counter = 0;
+  static const String OFFICIAL_WEBSITE = 'https://www.junohoro.com/';
 
   @override
   bool get wantKeepAlive => true;
 
   void _incrementCounter() async {
-    setState(() {
-      _counter++;
-    });
+    const text = 'Juno：您身邊的星座專家，占星、塔羅、合盤全都有！$OFFICIAL_WEBSITE';
+
+    String url = "whatsapp://send?text=$text";
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      print('Could not launch $url');
+    }
   }
 
   @override

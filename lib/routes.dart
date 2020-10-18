@@ -9,6 +9,7 @@ import 'package:flutter_app/page/MyHomePage.dart';
 import 'package:flutter_app/page/PavlovaPage.dart';
 import 'package:flutter_app/page/RandomWords.dart';
 import 'package:flutter_app/page/cupertino_action_sheet_page.dart';
+import 'package:flutter_app/page/custom_scrollview_page.dart';
 import 'package:flutter_app/page/draggable_scrollable_sheet_page.dart';
 import 'package:flutter_app/page/flutter_picker_page.dart';
 import 'package:flutter_app/page/fractionally_sized_box_page.dart';
@@ -26,7 +27,7 @@ import 'package:flutter_app/page/wrap_page.dart';
 import 'package:flutter_app/page/animation_page.dart';
 import 'package:flutter_app/page/animation_two.dart';
 import 'package:flutter_app/page/backdrop_page.dart';
-import 'package:flutter_app/page/custom_view.dart';
+import 'package:flutter_app/page/custom_animation_page.dart';
 import 'package:flutter_app/page/draggable_dragtargets.dart';
 import 'package:flutter_app/page/flutter_native_web.dart';
 import 'package:flutter_app/page/flutter_youtube_page.dart';
@@ -63,7 +64,7 @@ final routes = <String, WidgetBuilder>{
   'ExpansionTilePage': (_) => ExpansionTilePage(),
   'TransformPage': (_) => Transform3D(),
   'LoginPage': (_) => LoginPage(),
-  'CustomViewPage': (_) => CustomViewPage(),
+  'CustomViewPage': (_) => CustomAnimationPage(),
   'TabPae': (_) => TabPage(),
   'backdropPage': (_) => BackdropPage(),
   'Draggable': (_) => DraggableDragtargets(),
@@ -85,6 +86,7 @@ final routes = <String, WidgetBuilder>{
   'DraggableScrollableSheet': (_) => DraggableScrollableSheetPage(),
   'ModalPage': (_) => ModalPage(),
   'PickerPage': (_) => PickerPage(),
+  'CustomScrollViewPage': (_) => CustomScrollViewPage(),
 };
 
 ///当通过Navigation.of(context).pushNamed跳转路由时，在routes查找不到时，会调用该方法

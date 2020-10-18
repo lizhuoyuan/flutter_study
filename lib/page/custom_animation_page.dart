@@ -9,12 +9,12 @@ import 'dart:ui' as ui;
 import 'package:flutter/material.dart';
 import 'package:flutter_app/utils/image_util.dart';
 
-class CustomViewPage extends StatefulWidget {
+class CustomAnimationPage extends StatefulWidget {
   @override
-  State<StatefulWidget> createState() => CustomViewPageState();
+  State<StatefulWidget> createState() => CustomAnimationPageState();
 }
 
-class CustomViewPageState extends State<CustomViewPage> with SingleTickerProviderStateMixin {
+class CustomAnimationPageState extends State<CustomAnimationPage> with SingleTickerProviderStateMixin {
   Animation<double> _doubleAnimation;
   AnimationController _controller;
   CurvedAnimation curvedAnimation;
