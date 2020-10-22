@@ -7,7 +7,7 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_share_me/flutter_share_me.dart';
+//import 'package:flutter_share_me/flutter_share_me.dart';
 
 class SharePage extends StatefulWidget {
   @override
@@ -41,34 +41,34 @@ class _SharePageState extends State<SharePage> {
             RaisedButton(
               child: Text('share to twitter'),
               onPressed: () async {
-                var response = await FlutterShareMe().shareToTwitter(
-                    url: 'https://github.com/lizhuoyuan', msg: msg);
-                if (response == 'success') {
-                  print('navigate success');
-                }
+//                var response = await FlutterShareMe().shareToTwitter(
+//                    url: 'https://github.com/lizhuoyuan', msg: msg);
+//                if (response == 'success') {
+//                  print('navigate success');
+//                }
               },
             ),
             RaisedButton(
               child: Text('share to shareWhatsApp'),
               onPressed: () {
-                FlutterShareMe()
-                    .shareToWhatsApp(base64Image: base64Image, msg: msg);
+//                FlutterShareMe()
+//                    .shareToWhatsApp(base64Image: base64Image, msg: msg);
               },
             ),
             RaisedButton(
               child: Text('share to shareFacebook'),
               onPressed: () {
-                FlutterShareMe().shareToFacebook(
-                    url: 'https://github.com/lizhuoyuan', msg: msg);
+//                FlutterShareMe().shareToFacebook(
+//                    url: 'https://github.com/lizhuoyuan', msg: msg);
               },
             ),
             RaisedButton(
               child: Text('share to System'),
               onPressed: () async {
-                var response = await FlutterShareMe().shareToSystem(msg: msg);
-                if (response == 'success') {
-                  print('navigate success');
-                }
+//                var response = await FlutterShareMe().shareToSystem(msg: msg);
+//                if (response == 'success') {
+//                  print('navigate success');
+//                }
               },
             ),
           ],

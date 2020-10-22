@@ -83,32 +83,51 @@ class _TabPageState extends State<TabPage> with SingleTickerProviderStateMixin {
     return Scaffold(
       backgroundColor: _color,
       body: Column(
-        children: [
+        children: <Widget>[
           Container(
             color: _color,
-            height: ScreenUtil.statusBarHeight,
+            height: ScreenUtil().statusBarHeight,
           ),
-          Container(
-            child: TabBar(
-              controller: _mysTabController,
-              labelColor: Colors.black,
-              tabs: <Widget>[...myTabs],
-              isScrollable: true,
-            ),
-          ),
-          Expanded(
-            child: TabBarView(
-                controller: _mysTabController,
-                children: myTabBarViews
-                    .map((Tab tab) => Container(
-                          alignment: Alignment.center,
-                          // color: _color,
-                          child: Text(
-                            tab.text,
-                            style: TextStyle(color: Colors.white),
-                          ),
-                        ))
-                    .toList()),
+          CustomScrollView(
+            shrinkWrap: true,
+            slivers: <Widget>[
+              SliverToBoxAdapter(
+                child: Text('asda'),
+              ),
+              SliverToBoxAdapter(
+                child: Container(
+                  child: TabBar(
+                    controller: _mysTabController,
+                    labelColor: Colors.black,
+                    tabs: <Widget>[...myTabs],
+                    isScrollable: true,
+                  ),
+                ),
+              ),
+              SliverToBoxAdapter(
+                child: SizedBox(
+                  height: 500,
+                  child: TabBarView(
+                      controller: _mysTabController,
+                      children: myTabBarViews
+                          .map((Tab tab) => Container(
+                                alignment: Alignment.center,
+                                // color: _color,
+                                child: Text(
+                                  tab.text,
+                                  style: TextStyle(color: Colors.white),
+                                ),
+                              ))
+                          .toList()),
+                ),
+              ),
+              SliverToBoxAdapter(
+                child: Container(
+                  height: 20,
+                  color: Colors.blue,
+                ),
+              )
+            ],
           ),
         ],
       ),

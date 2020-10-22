@@ -40,8 +40,8 @@ class _ExtensionPagState extends State<ExtensionPage> {
           children: [
             Image.asset(
               'images/pavlova.png',
-              width: ScreenUtil.screenWidth,
-              height: ScreenUtil.screenHeight,
+              width: ScreenUtil().screenWidth,
+              height: ScreenUtil().screenHeight,
             ),
             if (isShowBlur)
               BackdropFilter(

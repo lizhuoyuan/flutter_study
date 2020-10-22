@@ -45,12 +45,13 @@ Future<Null> main() async {
       Zone.current.handleUncaughtError(details.exception, details.stack);
     }
   };
-
-  runZonedGuarded<Future<Null>>(() async {
-    runApp(BlocProvider(child: const MyApp()));
-  }, (error, stackTrace) async {
-    await _reportError(error, stackTrace);
-  });
+  runApp(BlocProvider(child: const MyApp()));
+//
+//  runZonedGuarded<Future<Null>>(() async {
+//    runApp(BlocProvider(child: const MyApp()));
+//  }, (error, stackTrace) async {
+//    await _reportError(error, stackTrace);
+//  });
 }
 
 class MyApp extends StatelessWidget {

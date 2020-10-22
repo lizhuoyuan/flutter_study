@@ -12,7 +12,11 @@ dependencies:
   dio: ^1.0.3
   flutter_swiper: ^1.1.6
   url_launcher: ^5.5.2
-  flutter_screenutil: ^2.3.1
+  flutter_screenutil:
+    git:
+      url: https://github.com/OpenFlutter/flutter_screenutil
+      ref: master
+
   scoped_model: ^0.3.0
   groovin_material_icons: ^1.1.5
   fluttertoast: ^3.0.3
@@ -29,6 +33,9 @@ dependencies:
   path_provider: ^1.6.14
   mapbox_search: ^2.0.1
   flutter_picker: ^1.1.5
+  share: '>=0.6.5+1 <2.0.0'
+  social_share_plugin: ^0.3.1
+  flutter_appavailability: ^0.0.21
 
 dev_dependencies:
   flutter_test:

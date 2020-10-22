@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/page/MyHomePage.dart';
+import 'package:flutter_appavailability/flutter_appavailability.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class GridViewPage extends StatefulWidget {
   @override
@@ -51,6 +53,7 @@ class ListItem {
 class ListItemWidget extends StatelessWidget {
   final ListItem listItem;
   final int index;
+
   ListItemWidget(this.listItem, this.index);
 
   @override
@@ -64,8 +67,7 @@ class ListItemWidget extends StatelessWidget {
             Hero(
                 tag: listItem.title,
                 child: Image(
-                  image: AssetImage(
-                      index == 5 ? 'images/jay.jpg' : 'images/pic3.jpg'),
+                  image: AssetImage(index == 5 ? 'images/jay.jpg' : 'images/pic3.jpg'),
                   width: 150.0,
                   height: 150.0,
                   fit: BoxFit.fill,
@@ -80,16 +82,38 @@ class ListItemWidget extends StatelessWidget {
           ],
         ),
       ),
-      onTap: () {
+      onTap: () async {
         /*Scaffold.of(context).showSnackBar(new SnackBar(
           content: new Text(listItem.title),
         ));*/
-        Navigator.of(context).push(PageRouteBuilder(pageBuilder:
+        /*Navigator.of(context).push(PageRouteBuilder(pageBuilder:
             (BuildContext context, Animation<double> animation,
                 Animation<double> secondaryAnimation) {
           return MyHomePage(tag: listItem.title);
-        }));
+        }));*/
+
+        print(await AppAvailability.checkAvailability("com.whatsapp"));
+
+        print(await AppAvailability.checkAvailability("com.facebook.katana"));
+        print(await AppAvailability.checkAvailability("com.twitter.android"));
+        print(await AppAvailability.checkAvailability("com.instagram.android"));
+
+//         print(await canLaunch(FB_PAGE));
+
+        // const url = "https://wa.me/?text=Your Message here";
+
+        var url = 'https://www.instagram.com/juno.horoscopes/';
+
+        if (await canLaunch(url)) {
+          await launch(url);
+        } else {
+          throw 'There was a problem to open the url: $url';
+        }
+        //        print(await canLaunch(encoded));
       },
     );
   }
+   static const String FACEBOOK_URL =
+      'https://www.facebook.com/%E6%B5%8B%E6%B5%8B%E5%9B%BD%E9%99%85%E7%89%88-617960732190357';
+  static const String FB_PAGE = 'fb://page/617960732190357';
 }

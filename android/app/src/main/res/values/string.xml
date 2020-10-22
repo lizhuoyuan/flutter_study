@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="facebook_app_id">343254889799245</string>
+    <string name="app_name">flutter study.</string>
+
 </resources>
