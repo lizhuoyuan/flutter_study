@@ -6,6 +6,7 @@ import 'package:flutter_app/routes.dart';
 import 'package:flutter_app/rxdart/bloc_provider.dart';
 import 'package:flutter_app/theme/app_theme.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 bool get isInDebugMode {
   bool inDebugMode = false;
@@ -69,22 +70,25 @@ class MyApp extends StatelessWidget {
   }
 
   Widget _builder(BuildContext context, AsyncSnapshot snapshot) {
-    return MaterialApp(
-      title: 'Welcome to Flutter_study',
-      theme: snapshot.data ? AppTheme().darkTheme : AppTheme().lightTheme,
-      localizationsDelegates: [
-        const TranslationsDelegate(),
-        GlobalMaterialLocalizations.delegate,
-        GlobalWidgetsLocalizations.delegate,
-      ],
-      supportedLocales: [Locale("zh"), Locale("en")],
-      initialRoute: '/',
-      routes: routes,
-      onGenerateRoute: onGenerateRoute,
-      navigatorObservers: [
-        Ob1(),
-      ],
-    );
+    return ScreenUtilInit(
+        allowFontScaling: false,
+        designSize: Size(360, 720),
+        child: MaterialApp(
+          title: 'Welcome to Flutter_study',
+          theme: snapshot.data ? AppTheme().darkTheme : AppTheme().lightTheme,
+          localizationsDelegates: [
+            const TranslationsDelegate(),
+            GlobalMaterialLocalizations.delegate,
+            GlobalWidgetsLocalizations.delegate,
+          ],
+          supportedLocales: [Locale("zh"), Locale("en")],
+          initialRoute: '/',
+          routes: routes,
+          onGenerateRoute: onGenerateRoute,
+          navigatorObservers: [
+            Ob1(),
+          ],
+        ));
   }
 }
 

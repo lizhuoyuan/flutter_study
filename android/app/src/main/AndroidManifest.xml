@@ -7,7 +7,8 @@
          to allow setting breakpoints, to provide hot reload, etc.
     -->
     <uses-permission android:name="android.permission.INTERNET" />
-
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <!-- io.flutter.app.FlutterApplication is an android.app.Application that
          calls FlutterMain.startInitialization(this); in its onCreate method.
          In most cases you can leave this as-is, but you if you want to provide
@@ -16,8 +17,8 @@
     <application
         android:name="io.flutter.app.FlutterApplication"
         android:icon="@mipmap/ic_launcher"
-        android:usesCleartextTraffic="true"
         android:label="flutter_study"
+        android:usesCleartextTraffic="true"
         tools:ignore="GoogleAppIndexingWarning">
         <activity
             android:name=".MainActivity"
@@ -42,26 +43,27 @@
             android:name="com.facebook.sdk.ApplicationId"
             android:value="@string/facebook_app_id" />
 
-<!--        <meta-data android:name="com.facebook.sdk.ApplicationName"-->
-<!--            android:value="@string/app_name"/>-->
+        <!--        <meta-data android:name="com.facebook.sdk.ApplicationName"-->
+        <!--            android:value="@string/app_name"/>-->
 
-<!--        <activity android:name="com.facebook.FacebookActivity"-->
-<!--            android:configChanges=-->
-<!--                "keyboard|keyboardHidden|screenLayout|screenSize|orientation"-->
-<!--            android:label="@string/app_name" />-->
+        <!--        <activity android:name="com.facebook.FacebookActivity"-->
+        <!--            android:configChanges=-->
+        <!--                "keyboard|keyboardHidden|screenLayout|screenSize|orientation"-->
+        <!--            android:label="@string/app_name" />-->
 
-<!--        <provider android:authorities="com.facebook.app.FacebookContentProvider343254889799245"-->
-<!--            android:name="com.facebook.FacebookContentProvider"-->
-<!--            tools:replace="android:exported"-->
-<!--            android:exported="true"/>-->
+        <!--        <provider android:authorities="com.facebook.app.FacebookContentProvider343254889799245"-->
+        <!--            android:name="com.facebook.FacebookContentProvider"-->
+        <!--            tools:replace="android:exported"-->
+        <!--            android:exported="true"/>-->
 
-        <provider android:name="androidx.core.content.FileProvider"
+        <provider
+            android:name="androidx.core.content.FileProvider"
             android:authorities="com.example.flutterapp.social.share.fileprovider"
             android:exported="false"
             android:grantUriPermissions="true">
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/filepaths"/>
+                android:resource="@xml/filepaths" />
         </provider>
     </application>
 </manifest>

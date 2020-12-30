@@ -6,33 +6,38 @@
         <option name="testRunner" value="PLATFORM" />
         <option name="distributionType" value="DEFAULT_WRAPPED" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="gradleJvm" value="JDK" />
+        <option name="gradleJvm" value="1.8 (2)" />
         <option name="modules">
           <set>
+            <option value="$USER_HOME$/.pub-cache/hosted/pub.flutter-io.cn/flutter_appavailability-0.0.21/android" />
+            <option value="$USER_HOME$/.pub-cache/hosted/pub.flutter-io.cn/flutter_share_me-0.6.0/android" />
+            <option value="$USER_HOME$/.pub-cache/hosted/pub.flutter-io.cn/flutter_youtube-1.3.6/android" />
+            <option value="$USER_HOME$/.pub-cache/hosted/pub.flutter-io.cn/fluttertoast-3.1.3/android" />
+            <option value="$USER_HOME$/.pub-cache/hosted/pub.flutter-io.cn/image_gallery_saver-1.6.7/android" />
+            <option value="$USER_HOME$/.pub-cache/hosted/pub.flutter-io.cn/path_provider-1.6.14/android" />
+            <option value="$USER_HOME$/.pub-cache/hosted/pub.flutter-io.cn/path_provider_linux-0.0.1+2/android" />
+            <option value="$USER_HOME$/.pub-cache/hosted/pub.flutter-io.cn/path_provider_macos-0.0.4+3/android" />
+            <option value="$USER_HOME$/.pub-cache/hosted/pub.flutter-io.cn/permission_handler-5.0.1+1/android" />
+            <option value="$USER_HOME$/.pub-cache/hosted/pub.flutter-io.cn/share-0.6.5+1/android" />
+            <option value="$USER_HOME$/.pub-cache/hosted/pub.flutter-io.cn/shared_preferences-0.5.10/android" />
+            <option value="$USER_HOME$/.pub-cache/hosted/pub.flutter-io.cn/shared_preferences_linux-0.0.2+2/android" />
+            <option value="$USER_HOME$/.pub-cache/hosted/pub.flutter-io.cn/shared_preferences_macos-0.0.1+10/android" />
+            <option value="$USER_HOME$/.pub-cache/hosted/pub.flutter-io.cn/shared_preferences_web-0.1.2+7/android" />
+            <option value="$USER_HOME$/.pub-cache/hosted/pub.flutter-io.cn/social_share_plugin-0.3.1+1/android" />
+            <option value="$USER_HOME$/.pub-cache/hosted/pub.flutter-io.cn/sqflite-1.3.1+1/android" />
+            <option value="$USER_HOME$/.pub-cache/hosted/pub.flutter-io.cn/url_launcher-5.5.2/android" />
+            <option value="$USER_HOME$/.pub-cache/hosted/pub.flutter-io.cn/url_launcher_linux-0.0.1+1/android" />
+            <option value="$USER_HOME$/.pub-cache/hosted/pub.flutter-io.cn/url_launcher_macos-0.0.1+7/android" />
+            <option value="$USER_HOME$/.pub-cache/hosted/pub.flutter-io.cn/url_launcher_web-0.1.3+1/android" />
+            <option value="$USER_HOME$/.pub-cache/hosted/pub.flutter-io.cn/video_player-0.10.12+2/android" />
+            <option value="$USER_HOME$/.pub-cache/hosted/pub.flutter-io.cn/video_player_web-0.1.3+2/android" />
+            <option value="$USER_HOME$/.pub-cache/hosted/pub.flutter-io.cn/webview_flutter-0.3.22+1/android" />
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
-            <option value="$PROJECT_DIR$/../../../flutter/.pub-cache/hosted/pub.flutter-io.cn/flutter_app_badger-1.1.2/android" />
-            <option value="$PROJECT_DIR$/../../../flutter/.pub-cache/hosted/pub.flutter-io.cn/flutter_share_me-0.6.0/android" />
-            <option value="$PROJECT_DIR$/../../../flutter/.pub-cache/hosted/pub.flutter-io.cn/flutter_youtube-1.3.6/android" />
-            <option value="$PROJECT_DIR$/../../../flutter/.pub-cache/hosted/pub.flutter-io.cn/fluttertoast-3.1.3/android" />
-            <option value="$PROJECT_DIR$/../../../flutter/.pub-cache/hosted/pub.flutter-io.cn/path_provider-1.6.14/android" />
-            <option value="$PROJECT_DIR$/../../../flutter/.pub-cache/hosted/pub.flutter-io.cn/path_provider_linux-0.0.1+2/android" />
-            <option value="$PROJECT_DIR$/../../../flutter/.pub-cache/hosted/pub.flutter-io.cn/path_provider_macos-0.0.4+3/android" />
-            <option value="$PROJECT_DIR$/../../../flutter/.pub-cache/hosted/pub.flutter-io.cn/shared_preferences-0.5.10/android" />
-            <option value="$PROJECT_DIR$/../../../flutter/.pub-cache/hosted/pub.flutter-io.cn/shared_preferences_linux-0.0.2+2/android" />
-            <option value="$PROJECT_DIR$/../../../flutter/.pub-cache/hosted/pub.flutter-io.cn/shared_preferences_macos-0.0.1+10/android" />
-            <option value="$PROJECT_DIR$/../../../flutter/.pub-cache/hosted/pub.flutter-io.cn/shared_preferences_web-0.1.2+7/android" />
-            <option value="$PROJECT_DIR$/../../../flutter/.pub-cache/hosted/pub.flutter-io.cn/sqflite-1.3.1+1/android" />
-            <option value="$PROJECT_DIR$/../../../flutter/.pub-cache/hosted/pub.flutter-io.cn/url_launcher-5.5.2/android" />
-            <option value="$PROJECT_DIR$/../../../flutter/.pub-cache/hosted/pub.flutter-io.cn/url_launcher_linux-0.0.1+1/android" />
-            <option value="$PROJECT_DIR$/../../../flutter/.pub-cache/hosted/pub.flutter-io.cn/url_launcher_macos-0.0.1+7/android" />
-            <option value="$PROJECT_DIR$/../../../flutter/.pub-cache/hosted/pub.flutter-io.cn/url_launcher_web-0.1.3+1/android" />
-            <option value="$PROJECT_DIR$/../../../flutter/.pub-cache/hosted/pub.flutter-io.cn/video_player-0.10.12+2/android" />
-            <option value="$PROJECT_DIR$/../../../flutter/.pub-cache/hosted/pub.flutter-io.cn/video_player_web-0.1.3+2/android" />
-            <option value="$PROJECT_DIR$/../../../flutter/.pub-cache/hosted/pub.flutter-io.cn/webview_flutter-0.3.22+1/android" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
+        <option name="useQualifiedModuleNames" value="true" />
       </GradleProjectSettings>
     </option>
   </component>
