@@ -13,7 +13,6 @@ dependencies:
   flutter_swiper: ^1.1.6
   url_launcher: ^5.5.2
   flutter_screenutil: ^4.0.2+2
-
   scoped_model: ^0.3.0
   groovin_material_icons: ^1.1.5
   fluttertoast: ^3.0.3

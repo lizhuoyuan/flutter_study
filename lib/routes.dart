@@ -30,8 +30,7 @@ import 'package:flutter_app/page/backdrop_page.dart';
 import 'package:flutter_app/page/custom_animation_page.dart';
 import 'package:flutter_app/page/draggable_dragtargets.dart';
 import 'package:flutter_app/page/flutter_native_web.dart';
-import 'package:flutter_app/page/flutter_youtube_page.dart';
-import 'package:flutter_app/page/login_page.dart';
+ import 'package:flutter_app/page/login_page.dart';
 import 'package:flutter_app/page/search_page.dart';
 import 'package:flutter_app/page/share_page.dart';
 import 'package:flutter_app/page/sliver_page.dart';
@@ -72,8 +71,7 @@ final routes = <String, WidgetBuilder>{
   'AnimationTwo': (_) => AnimationTwo(),
   'SearchPage': (_) => SearchPage(),
   'VideoPlayerPage': (_) => VideoPlayerPage(),
-  'FlutterYoutubePage': (_) => FlutterYoutubePage(),
-  'Sliver': (_) => SliverPage(),
+   'Sliver': (_) => SliverPage(),
   'FlutterNativeWeb': (_) => FlutterNativeWebPage(),
   'SqfLitePage': (_) => SqfLite(),
   'StepperPage': (_) => StepperPage(),
