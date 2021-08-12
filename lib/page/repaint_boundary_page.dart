@@ -5,10 +5,9 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:flutter_app/utils/share_util.dart';
+import 'package:flutter_share_me/flutter_share_me.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:path_provider/path_provider.dart';
-import 'package:share/share.dart';
 
 class RepaintBoundaryPage extends StatefulWidget {
   @override
@@ -49,7 +48,7 @@ class _RepaintBoundaryPageState extends State<RepaintBoundaryPage> {
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              RaisedButton(
+              ElevatedButton(
                 child: Text('以下的东西会截图'),
                 onPressed: _screenShot,
               ),
@@ -122,7 +121,6 @@ class _RepaintBoundaryPageState extends State<RepaintBoundaryPage> {
   }
 
   void share() {
-    ShareUtil.shareIns();
-    // Share.shareFiles([file.path], text: '分享个图',subject: 'sub');
+    FlutterShareMe().shareToWhatsApp(imagePath: file.path, msg: 'ssss');
   }
 }
